@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/simple}">
   <head>
-    <title>Log In</title>
+    <title th:text="#{formLogin.iniciarSesion}"></title>
   </head>  
   <body>
 	<div class="container" layout:fragment="content">
 		<div class="row form-signin">
 			<form th:action="@{/login}" method="post">
-				<h2 class="form-signin-heading">Please log in</h2>
-				<p th:if="${loginError}" class="error"><i class="fa fa-exclamation" aria-hidden="true"></i> Wrong user or password</p>
-			    <label for="username" class="sr-only">Username</label>
-			    <input type="text" id="username" name="username" placeholder="Email" class="form-control" required autofocus/>
-			    <label for="password" class="sr-only">Password</label>
-			    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required/>
-			    <button class="btn btn-primary btn-block" type="submit">Log in</button>
+				<h2 class="form-signin-heading" th:text="#{formLogin.pleaseLogin}"></h2>
+				<p th:if="${loginError}" class="error" th:text="#{formLogin.errorUserPass}"><i class="fa fa-exclamation" aria-hidden="true"></i></p>
+			    <label for="username" class="sr-only"></label>
+			    <input type="text" id="username" name="username" th:placeholder="#{formLogin.email}" class="form-control" required autofocus/>
+			    <label for="password" class="sr-only"></label>
+			    <input type="password" id="password" name="password" class="form-control" th:placeholder="#{formLogin.password}" required/>
+			    <button class="btn btn-primary btn-block" type="submit" th:text="#{formLogin.signIn}"></button>
 	     	</form>
 	     	<div class="signup-or-separator">
-    			<span class="h6 signup-or-separator--text">or</span>
+    			<span class="h6 signup-or-separator--text" th:text="#{formLogin.or}"></span>
     			<hr>
   			</div>
 	   		<form th:action="@{/signin/facebook}" method="post" class="social">
 	   			<input type="hidden" name="scope" value="public_profile" />
-	   			<button class="btn btn-default btn-block" type="submit"><i class="fa fa-facebook" aria-hidden="true"></i> Log in with Facebook</button>
+	   			<button class="btn btn-default btn-block" type="submit" th:text="#{formLogin.btnFacebook}"><i class="fa fa-facebook" aria-hidden="true"></i></button>
 			</form>
 			<form th:action="@{/signin/google}" method="post" class="social">
 	    		<input type="hidden" name="scope" value="email https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.me" />
-	    		<button type="submit" class="btn btn-default btn-block"><i class="fa fa-google" aria-hidden="true"></i> Log in with Google</button>
+	    		<button type="submit" class="btn btn-default btn-block"><i class="fa fa-google" aria-hidden="true" th:text="#{formLogin.btnGoogle}"></i></button>
 			</form>
 			<hr>
 			<div class="signup-footer">
-				<div class="col-sm-8 text-left">
-					Do you have an account?
+				<div class="col-sm-8 text-left" th:text="#{formLogin.questionAlreadyReg}">
 				</div>
 				<div class="col-sm-4 text-right">
-					<a class="btn btn-default" th:href="@{/register}" role="button">Sign Up</a>
+					<a class="btn btn-default" th:href="@{/register}" role="button" th:text="#{formLogin.signUp}"></a>
 				</div>
 			</div>
 		</div>	

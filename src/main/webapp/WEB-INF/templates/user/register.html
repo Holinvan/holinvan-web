@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/simple}">
 	<head>
-		<title>Sign Up</title>
+		<title th:text="#{formRegister.signUp}"></title>
 	</head>
 	<body>
 		<div class="container" layout:fragment="content">
 			<div class="row form-signin">
-		    	<div th:if="${(param.signup != null) and (param.signup[0] == 'true')}" class="alert alert-warning" role="alert">
-		    		No account exists for that login. Try signing up instead
+		    	<div th:if="${(param.signup != null) and (param.signup[0] == 'true')}" class="alert alert-warning" role="alert" th:text="#{formRegister.noAccount}">
+		    		
 		    	</div>
 		    	<form th:action="@{/register}" method="post" th:object="${user}">
-					<h2 class="form-signin-heading">Please sign up</h2>
-				    <label for="username" class="sr-only">Username</label>
-				    <input type="text" id="username" name="username" placeholder="Email" class="form-control" required autofocus/>
-				    <label for="password" class="sr-only">Password</label>
-				    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required/>
-				    <button class="btn btn-primary btn-block" type="submit">Sign up</button>
+					<h2 class="form-signin-heading" th:text="#{formRegister.title}"></h2>
+				    <label for="username" class="sr-only"></label>
+				    <input type="text" th:field="*{username}" th:placeholder="#{formRegister.email}" class="form-control" required autofocus/>
+				    
+				    <label for="password"></label>
+                <input type="password" th:field="*{password}"class="form-control" th:placeholder="#{formLogin.password}" maxlength="15" required>
+                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error">Error</p>
+				    
+				                    <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{formLogin.register}"></button>
+
 		     	</form>  
 		     	<div class="signup-or-separator">
-	    			<span class="h6 signup-or-separator--text">or</span>
+	    			<span class="h6 signup-or-separator--text" th:text="#{formRegister.or}"></span>
 	    			<hr>
 	  			</div>
 		   		<form th:action="@{/signin/facebook}" method="post" class="social">
 		   			<input type="hidden" name="scope" value="public_profile" />
-		   			<button class="btn btn-default btn-block" type="submit"><i class="fa fa-facebook" aria-hidden="true"></i> Sign up with Facebook</button>
+		   			<button class="btn btn-default btn-block" type="submit"><i class="fa fa-facebook" aria-hidden="true" th:text="#{formRegister.btnFacebook}"></i></button>
 				</form>
 				<form th:action="@{/signin/google}" method="post" class="social">
 		    		<input type="hidden" name="scope" value="email https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.me" />
-		    		<button type="submit" class="btn btn-default btn-block"><i class="fa fa-google" aria-hidden="true"></i> Sign up with Google</button>
+		    		<button type="submit" class="btn btn-default btn-block" th:text="#{formRegister.btnGoogle}"><i class="fa fa-google" aria-hidden="true"></i></button>
 				</form>
 				<hr>
 				<div class="signup-footer">
-					<div class="col-sm-9 text-left">
-						Already have an <b>Holinvan</b> account?
+					<div class="col-sm-9 text-left" th:text="#{formRegister.questionAlreadyReg}">
 					</div>
 					<div class="col-sm-3 text-right">
-						<a class="btn btn-default" th:href="@{/login}" role="button">Log In</a>
+						<a class="btn btn-default" th:href="@{/login}" role="button" th:text="#{formRegister.loginBtn}"></a>
 					</div>
 				</div>
             </div>

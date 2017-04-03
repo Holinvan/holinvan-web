@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-	<title>Add Camping</title>
+	<title th:text="#{formAddCamping.title}"></title>
 </head>
 
 <body>
@@ -9,7 +9,7 @@
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 				<form th:action="@{/addCamping}" method="post" th:object="${camping}">
-					<h2>Camping Data</h2>
+					<h2 th:text="#{formAddCamping.campingData}"></h2>
        				<div th:if="${addCampingResponse}" class="alert alert-dismissible" role="alert" th:classappend="${#strings.equals(addCampingResponse.status, 'OK')} ? alert-success : alert-danger">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<strong th:text="#{${addCampingResponse.messageCode}}"></strong> 
@@ -22,16 +22,17 @@
 					<div class="form-group" th:classappend="${#fields.hasErrors('telephone')} ? has-error">
 						<label for="idTelephone" th:text="#{formAddCamping.idTelephone}" class="telephone-input"></label>
 						<select th:field="*{idTelephone}" class="form-control telephone-input">
-							<option value="34" th:text="#{formBilling.country.SpainC}"></option>
-							<option value="33" th:text="#{formBilling.country.FrenchC}"></option>
-							<option value="39" th:text="#{formBilling.country.ItalyC}"></option>
-							<option value="46" th:text="#{formBilling.country.SwedenC}"></option>
-							<option value="32" th:text="#{formBilling.country.BelgiumC}"></option>
-							<option value="45" th:text="#{formBilling.country.DenmarkC}"></option>
-							<option value="7" th:text="#{formBilling.country.RussiaC}"></option>
-							<option value="49" th:text="#{formBilling.country.GermanyC}"></option>
-							<option value="351" th:text="#{formBilling.country.PortugalC}"></option>
-							<option value="48" th:text="#{formBilling.country.PolandC}"></option>
+							<option value="34" th:text="#{formAddCamping.idTelSpain}"></option>
+								<option value="376" th:text="#{formAddCamping.idTelAndorra}"></option>
+								<option value="35" th:text="#{formAddCamping.idTelPortugal}"></option>
+								<option value="33" th:text="#{formAddCamping.idTelFrance}"></option>
+							<option value="39" th:text="#{formAddCamping.idTelItaly}"></option>
+							<option value="46" th:text="#{formAddCamping.idTelSweden}"></option>
+							<option value="32" th:text="#{formAddCamping.idTelBelgium}"></option>
+							<option value="45" th:text="#{formAddCamping.idTelDenmark}"></option>
+							<option value="7" th:text="#{formAddCamping.idTelRussia}"></option>
+							<option value="49" th:text="#{formAddCamping.idTelGermany}"></option>
+							<option value="48" th:text="#{formAddCamping.idTelPoland}"></option>
 						</select> 
 						<input type="text" th:field="*{telephone}" class="form-control telephone-input" required>
 						<p th:if="${#fields.hasErrors('telephone')}" th:errors="*{idTelephone}" class="error">Error</p>
@@ -79,31 +80,31 @@
 					
 					<h2>Services</h2>
 					<div class="form-group">
-                								<input type="checkbox" id="animation" name="animation" value="1">Animación<br>
-							<input type="checkbox" id="atm" name="atm" value="1">Cajero Automático<br> 
-							<input type="checkbox" id="beach" name="beach" value="1">Playa<br>						
-							<input type="checkbox" name="defibrillator" value="1">Desfibrilador<br> 
-							<input type="checkbox" name="disco" value="1">Discoteca<br> 
-							<input type="checkbox" name="doctor" value="1">Asisténcia médica<br> 
-							<input type="checkbox" name="dogs" value="1">Perros permitidos<br> 
-							<input type="checkbox" name="football" value="1">Fútbol<br> 
-							<input type="checkbox" name="gym" value="1">Gimnasio<br> 
-							<input type="checkbox" name="heatedPool" value="1">Piscina cubierta<br> 
-							<input type="checkbox" name="kindergarten" value="1">Guarderia<br> 
-							<input type="checkbox" name="laundry" value="1">Lavandería<br> 
-							<input type="checkbox" name="minigolf" value="1">MiniGolf<br> 
-							<input type="checkbox" name="paddel" value="1">Paddel<br> 
-							<input type="checkbox" name="pool" value="1">Piscina<br> 
-							<input type="checkbox" name="pub" value="1">Pub<br> 
-							<input type="checkbox" name="restaurant" value="1">Restaurante<br> 
-							<input type="checkbox" name="snackBar" value="1">Bar<br> 
-							<input type="checkbox" name="supermarket" value="1">supermarket<br> 
-							<input type="checkbox" name="tennis" value="1">Tennis<br> 
-							<input type="checkbox" name="wifi" value="1">Wi-fi<br>
-							<input type="checkbox" name="wellness" value="1">Bienestar<br>
+                								<input type="checkbox" id="animation" name="animation" value="1" th:text="#{filterCampingServices.animation}"><br>
+							<input type="checkbox" id="atm" name="atm" value="1" th:text="#{filterCampingServices.atm}"><br> 
+							<input type="checkbox" id="beach" name="beach" value="1" th:text="#{filterCampingServices.beach}"><br>						
+							<input type="checkbox" name="defibrillator" value="1" th:text="#{filterCampingServices.defibrillator}"><br> 
+							<input type="checkbox" name="disco" value="1" th:text="#{filterCampingServices.disco}"><br> 
+							<input type="checkbox" name="doctor" value="1" th:text="#{filterCampingServices.doctor}"><br> 
+							<input type="checkbox" name="dogs" value="1" th:text="#{filterCampingServices.dogs}"><br> 
+							<input type="checkbox" name="football" value="1" th:text="#{filterCampingServices.football}"><br> 
+							<input type="checkbox" name="gym" value="1" th:text="#{filterCampingServices.gym}"><br> 
+							<input type="checkbox" name="heatedPool" value="1" th:text="#{filterCampingServices.heatedPool}"><br> 
+							<input type="checkbox" name="kindergarten" value="1" th:text="#{filterCampingServices.kindergarten}"><br> 
+							<input type="checkbox" name="laundry" value="1" th:text="#{filterCampingServices.laudry}"><br> 
+							<input type="checkbox" name="minigolf" value="1" th:text="#{filterCampingServices.minigolf}"><br> 
+							<input type="checkbox" name="paddel" value="1" th:text="#{filterCampingServices.paddel}"><br> 
+							<input type="checkbox" name="pool" value="1" th:text="#{filterCampingServices.pool}"><br> 
+							<input type="checkbox" name="pub" value="1" th:text="#{filterCampingServices.pub}"><br> 
+							<input type="checkbox" name="restaurant" value="1" th:text="#{filterCampingServices.restaurant}"><br> 
+							<input type="checkbox" name="snackBar" value="1" th:text="#{filterCampingServices.bar}"><br> 
+							<input type="checkbox" name="supermarket" value="1" th:text="#{filterCampingServices.supermarket}"><br> 
+							<input type="checkbox" name="tennis" value="1" th:text="#{filterCampingServices.tennis}"><br> 
+							<input type="checkbox" name="wifi" value="1" th:text="#{filterCampingServices.wifi}"><br>
+							<input type="checkbox" name="wellness" value="1" th:text="#{filterCampingServices.wellness}"><br>
 					</div>
 					
-					<h2>Billing</h2>
+					<h2 th:text="#{formBilling.billing}"></h2>
 					<div class="form-group" th:classappend="${#fields.hasErrors('namef')} ? has-error">
                 		<label for="namef" th:text="#{formAddCamping.namef}"></label>
 						<input type="text" th:field="*{namef}" class="form-control" th:placeholder="#{formAddCamping.namef}" required/>
@@ -125,7 +126,7 @@
 						<p th:if="${#fields.hasErrors('emailf')}" th:errors="*{emailf}" class="error">Error</p>
 					</div>
 					<div class="form-group buttons-line">
-						<a class="btn btn-default btn-lg btn-block" th:href="@{~/holinvan-web}">Cancel</a>
+						<a class="btn btn-default btn-lg btn-block" th:href="@{~/holinvan-web}" th:text="#{formBilling.cancelBtn}"></a>
 						<button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{formAddCamping.submitbtn}">Save</button>
 					</div>
 				</form>
