@@ -13,16 +13,10 @@ import com.holinvan.web.repository.CampingRepository;
 public class CampingService {
 	
 	@Autowired
-	CampingRepository campingRepository;
+	CampingRepository campingRepository; 
 	
 	@Transactional
-	public void addNewCamping(Camping camping) {
-		campingRepository.save(camping);	
+	public List <Camping> getCamping(){
+	return campingRepository.findAll();
 	}
-	
-	@Transactional
-	public List<Camping> getAllCampings() {
-		return campingRepository.findAll();
-	}
-
 }

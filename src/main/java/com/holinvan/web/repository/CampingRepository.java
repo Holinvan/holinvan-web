@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.holinvan.web.model.Camping;
 
 @Repository
-public interface CampingRepository extends JpaRepository<Camping, Integer> {
+public interface CampingRepository extends JpaRepository <Camping, Integer>{
 
+	
 }
