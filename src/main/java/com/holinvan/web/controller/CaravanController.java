@@ -18,7 +18,7 @@ import com.holinvan.web.validator.CaravanaValidator;
 
 @Controller
 @RequestMapping(value = "/caravana")
-public class CaravanaController {
+public class CaravanController {
 	
 	@Autowired
 	Caravanaservice caravanaservice;
