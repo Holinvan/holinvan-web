@@ -134,20 +134,46 @@ CREATE TABLE IF NOT EXISTS campings_services (
 
 /* -------------  CARAVANA ------------- */
 
-CREATE TABLE IF NOT EXISTS caravana (
-   plate varchar (10) NOT NULL PRIMARY KEY,
-   brand varchar (15) NOT NULL,
-   model varchar (15) NOT NULL,
-   construction_year integer (4) NOT NULL,
-   babys integer (1),
-   kids integer (1),
-   adults integer (1),
-   name varchar(50),
-   description varchar (255)
-) ENGINE=InnoDB;
+create table if not exists caravan (
+    id integer (10) not null primary key auto_increment,
+    brand varchar (15) not null,
+    model varchar (15)not null,
+    construction_year integer (4) not null,
+    babys integer (1),
+    kids integer (1),
+    adults integer (1),
+    name varchar(50),
+    description varchar (250),
+    insurance boolean,
+	insurance_offer varchar (20),
+    
+ 	id_camping int (11),
+    constraint relation_caravan_campings
+    foreign key (id_camping)
+    references campings (id),
+    
+    stay_length_min varchar (10),
+    stay_length_max varchar (10),
+ 	who_trans varchar (15),
+	inf_trans_name varchar(20),
+	inf_trans_adress varchar (50),
+	inf_trans_telephone integer (15),
+	inf_trans_email varchar (30),
+	inf_trans_contact varchar(50),
+    recommendation varchar (100),
+    lenght_stay_time integer (3),
+    lenght_stay_date varchar (15),   
+    reserv_advance_time integer (3),
+    reserv_advance_date varchar (15),
+    availability_time integer (3),
+    availability_date integer (15)
+);
 
-CREATE TABLE IF NOT EXISTS caracteristica (
-	plate VARCHAR(10) NOT NULL PRIMARY KEY,
+create table if not exists characteristic (
+	id integer(10) not null primary key auto_increment,
+			constraint relation_caravan_characteristic
+			foreign key (id)
+			references caravan (id),
 	beds boolean,
 	kitchen boolean,
 	living boolean,
@@ -158,29 +184,63 @@ CREATE TABLE IF NOT EXISTS caracteristica (
 	tv boolean,
 	fridge boolean,
 	closer boolean,
-	CONSTRAINT relacion_caravana_caracteristica FOREIGN KEY (plate) REFERENCES caravana (plate)
-) ENGINE=InnoDB;
+	oven boolean,
+	terrace_chairs boolean,
+	shower boolean,
+	crockery boolean,
+	skillets_casseroles boolean,
+	cutlery boolean,
+	others varchar (100)
+);
 
-CREATE TABLE IF NOT EXISTS servicio (
-	plate VARCHAR(10) NOT NULL PRIMARY KEY,
+create table if not exists service (
+	id integer(10) not null primary key auto_increment,
+			constraint relation_caravan_service
+			foreign key (id)
+			references caravan (id),
 	umbrella boolean,
 	cycle boolean,
 	hammock boolean,
 	bbq boolean,
 	towels boolean,
 	bed_sheets boolean,
-	CONSTRAINT relacion_caravana_servicio FOREIGN KEY (plate) REFERENCES caravana (plate)
-) ENGINE=InnoDB;
+	toaster boolean,
+	microwave boolean,
+	mixer boolean,
+	pilows boolean,
+	other varchar (100)
+);
 
-CREATE TABLE IF NOT EXISTS norma (
-	plate VARCHAR(10) NOT NULL PRIMARY KEY,
+create table if not exists rule (
+	id integer(10) not null primary key auto_increment,
+			constraint relation_caravan_rule
+			foreign key (id)
+			references caravan (id),
 	kids boolean,
 	pets boolean,
 	smoke boolean,
 	party boolean,
-	other varchar (100),
-	CONSTRAINT relacion_caravana_norma FOREIGN KEY (plate) REFERENCES caravana (plate)
-) ENGINE=InnoDB;
+	other varchar (100)
+);
+
+create table if not exists availability (
+	id integer (10) primary key auto_increment,
+    id_caravan integer (10),
+		foreign key (id_caravan)
+		references caravan (id),
+    init_date varchar (20),
+    end_date varchar (20)
+);
+
+CREATE TABLE IF NOT EXISTS price (
+    id INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
+    id_caravan INTEGER(10),
+    FOREIGN KEY (id_caravan)
+        REFERENCES caravan (id),
+    init_date VARCHAR(20),
+    end_date VARCHAR(20),
+    price DECIMAL(10)
+);
 
 /* ------------- INSERT MOCK DATA ------------- */
 
@@ -203,8 +263,8 @@ VALUES (1,'silentxavi@yahoo.es', 'Xavier', 'shurmano', '1', '1999-02-09', '34', 
 (2,'cesarAsturianu@gmail.com', 'Cesare', 'Augusto', '1', '1912-09-17', '34', '654321789', 'c/de la Sidra', 'Russiano', '09876'),
 (3,'victor_tgn_69@hotmail.com', 'Victor', 'Condemor Praderar', '1', '1992-09-25', '33', '654123989', 'c/de los Sueños 14 7oC', 'Vietnam', '08081'),
 (4,'sevillana_69@yahoo.es', 'Beatrix', 'Lestrange', '0', '1990-08-16', '45', '666777885', 'a/De la Grasia n89 6o2a', 'Andalucia', '98798');
-INSERT INTO campings (owner, name, idTelephone, telephone, address, country, CP, city)
-VALUES (1, 'CAMPING PAQUITO', '34', '23456789', 'a/Paquito\'s road', 'Irak', '67832', 'Bagdad'),
-('2', 'CAMPING PEPITO', '34', '2342345', 'a/Pepito\'s road', 'Vietnam', '23332', 'Hanoi'),
-('3', 'CAMPING CARLITOS', '34', '23454576', 'a/Carlito\'s road', 'Russia', '98765', 'Vladivostok'),
-('4', 'CAMPING MARIA', '34', '234986', 'a/Maria\'s road', 'Madagascar', '67999', 'Antananarivo');
+INSERT INTO campings (name, idTelephone, telephone, address, country, CP, city)
+VALUES ('CAMPING PAQUITO', '34', '23456789', 'a/Paquito\'s road', 'Irak', '67832', 'Bagdad'),
+('CAMPING PEPITO', '34', '2342345', 'a/Pepito\'s road', 'Vietnam', '23332', 'Hanoi'),
+('CAMPING CARLITOS', '34', '23454576', 'a/Carlito\'s road', 'Russia', '98765', 'Vladivostok'),
+('CAMPING MARIA', '34', '234986', 'a/Maria\'s road', 'Madagascar', '67999', 'Antananarivo');

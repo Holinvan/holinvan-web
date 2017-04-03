@@ -2,13 +2,11 @@ package com.holinvan.web.model;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -51,9 +49,11 @@ public class Camping implements Serializable {
 	private String telephone;
 	private String location;
 	private String zone;
-	@OneToOne(mappedBy="camping", cascade = CascadeType.PERSIST)
-	private CampingServices campingServices;
 	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public Camping() {
 	}
 
@@ -199,14 +199,6 @@ public class Camping implements Serializable {
 
 	public void setZone(String zone) {
 		this.zone = zone;
-	}
-
-	public CampingServices getCampingServices() {
-		return campingServices;
-	}
-
-	public void setCampingServices(CampingServices campingServices) {
-		this.campingServices = campingServices;
 	}
 
 }
