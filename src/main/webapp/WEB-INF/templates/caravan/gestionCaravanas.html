@@ -20,8 +20,8 @@
 		</div>
 		<div class="row">
 			<div class="progress">
-				<div class="progress-bar" role="progressbar" aria-valuenow="20"
-					aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+				<div class="progress-bar" role="progressbar" aria-valuenow="7,14"
+					aria-valuemin="0" aria-valuemax="100" style="width: 7,14%;">
 					<span class="sr-only"></span>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 								class="error">Name error</p>
 						</div>
 						<div class="form-group"
-							th:classappend="${#fields.hasErrors('brand')} ? has-error">
+							th:classappend="${#fields.hasErrors('model')} ? has-error">
 							<label for="model" th:text="#{model}"> <abbr
 								class="required" title="required"> * </abbr></label> <input type="text"
 								th:field="*{model}" class="form-control" />
@@ -55,14 +55,7 @@
 							<p th:if="${#fields.hasErrors('constructionYear')}"
 								th:errors="*{constructionYear}" class="error">Name error</p>
 						</div>
-						<div class="form-group"
-							th:classappend="${#fields.hasErrors('plate')} ? has-error">
-							<label for="plate" th:text="#{plate}"> <abbr
-								class="required" title="required"> * </abbr></label> <input type="text"
-								th:field="*{plate}" class="form-control" />
-							<p th:if="${#fields.hasErrors('plate')}" th:errors="*{plate}"
-								class="error">Name error</p>
-						</div>
+						
 						<div class="form-group buttons buttons-line">
 							<a class="btn btn-default btn-lg btn-block"
 								th:href="@{~/holinvan-web}">Cancel</a>
@@ -244,7 +237,7 @@
 								</div>
 								<div class="checkbox">
 									<label> <input type="text"
-										th:field="*{characteristic.otherse}"> <span
+										th:field="*{characteristic.others}"> <span
 										th:text="#{others}"></span>
 									</label>
 								</div>
@@ -376,8 +369,8 @@
 							</div>
 						</div>
 						<div class="checkbox">
-							<label> <input type="checkbox" th:field="*{other.rules}">
-								<span th:text="#{rule.other}"></span>
+							<label> <input type="text" th:field="*{rule.other}">
+								<span th:text="#{other.rules}"></span>
 							</label>
 						</div>
 						<div class="form-group buttons buttons-line">
@@ -563,26 +556,7 @@
 							</button>
 						</div>
 					</fieldset>
-					<!--6.1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
-					<fieldset>
-						<h4 th:text="#{show.recommendation}"></h4>
-
-						<h4 th:text="#{tip}"></h4>
-						<h4 th:text="#{tip.recommendation}"></h4>
-
-						<div class="form-group buttons buttons-line">
-							<button type="button"
-								class="btn btn-default btn-lg btn-block btn-previous"
-								th:utext="#{previous}">
-								<i class="fa fa-angle-left"></i>
-							</button>
-
-							<button class="btn btn-lg btn-primary btn-block btn-next"
-								type="button" th:utext="#{next}">
-								<i class="fa fa-floppy-o" aria-hidden="true"></i>
-							</button>
-						</div>
-					</fieldset>
+					
 					<!--6.2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 					<fieldset>
 						<h4 th:text="#{select.booking}"></h4>
@@ -649,10 +623,7 @@
 								th:utext="#{previous}">
 								<i class="fa fa-angle-left"></i>
 							</button>
-							<button class="btn btn-lg btn-primary btn-block btn-next"
-								type="button" th:utext="#{next}">
-								<i class="fa fa-floppy-o" aria-hidden="true"></i>
-							</button>
+							<button class="btn btn-lg btn-primary btn-block btn-next" type="submit" th:utext="#{t.save}"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
 						</div>
 					</fieldset>
 				</form>
