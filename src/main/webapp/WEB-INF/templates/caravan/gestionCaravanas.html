@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/simple}" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/simple}"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-  <title>Add Caravan</title>
+<title>Add Caravan</title>
 </head>
 <meta charset="UTF-8">
 <title th:text="#{5}"></title>
@@ -9,52 +12,72 @@
 <body>
 	<div class="container-fluid" layout:fragment="content">
 		<div class="header-publish-caravan">
-			<a th:href="@{~/holinvan-web}">
-			    <img class="logo-desktop" th:src="@{/resources/img/logo_min_m.png}">
-        		<img class="logo-mobile" th:src="@{/resources/img/isotipo_min.png}">
-        	</a>
+			<a th:href="@{~/holinvan-web}"> <img class="logo-desktop"
+				th:src="@{/resources/img/logo_min_m.png}"> <img
+				class="logo-mobile" th:src="@{/resources/img/isotipo_min.png}">
+			</a>
 			<h4 class="title-progress">PUBLISH YOUR CARAVAN</h4>
 		</div>
 		<div class="row">
 			<div class="progress">
-			  <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
-			    <span class="sr-only"></span>
-			  </div>
+				<div class="progress-bar" role="progressbar" aria-valuenow="20"
+					aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+					<span class="sr-only"></span>
+				</div>
 			</div>
 			<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-				<form th:action="@{/caravana/add}" th:object="${caravana}" method="post" id="caravanForm">
+				<form th:action="@{/caravana/add}" th:object="${caravana}"
+					method="post" id="caravanForm">
 					<fieldset>
 						<h2>Basic information</h2>
-						<div class="form-group" th:classappend="${#fields.hasErrors('brand')} ? has-error">
-							<label for="brand" th:text="#{brand}"> <abbr class="required" title="required"> * </abbr></label>
-							<input type="text" th:field="*{brand}" class="form-control" />
-							<p th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}" class="error">Name error</p>
+						<div class="form-group"
+							th:classappend="${#fields.hasErrors('brand')} ? has-error">
+							<label for="brand" th:text="#{brand}"> <abbr
+								class="required" title="required"> * </abbr></label> <input type="text"
+								th:field="*{brand}" class="form-control" />
+							<p th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}"
+								class="error">Name error</p>
 						</div>
-						<div class="form-group" th:classappend="${#fields.hasErrors('brand')} ? has-error">
-							<label for="model" th:text="#{model}"> <abbr class="required" title="required"> * </abbr></label>
-							<input type="text" th:field="*{model}" class="form-control" />
-							<p th:if="${#fields.hasErrors('model')}" th:errors="*{model}"class="error">Name error</p>
+						<div class="form-group"
+							th:classappend="${#fields.hasErrors('brand')} ? has-error">
+							<label for="model" th:text="#{model}"> <abbr
+								class="required" title="required"> * </abbr></label> <input type="text"
+								th:field="*{model}" class="form-control" />
+							<p th:if="${#fields.hasErrors('model')}" th:errors="*{model}"
+								class="error">Name error</p>
 						</div>
-						<div class="form-group" th:classappend="${#fields.hasErrors('constructionYear')} ? has-error">
-							<label for="constructionYear" th:text="#{constructionYear}"> <abbr class="required" title="required"> * </abbr></label>
-							<input type="text" th:field="*{constructionYear}" class="form-control" />
-							<p th:if="${#fields.hasErrors('constructionYear')}" th:errors="*{constructionYear}" class="error">Name error</p>
+						<div class="form-group"
+							th:classappend="${#fields.hasErrors('constructionYear')} ? has-error">
+							<label for="constructionYear" th:text="#{constructionYear}">
+								<abbr class="required" title="required"> * </abbr>
+							</label> <input type="text" th:field="*{constructionYear}"
+								class="form-control" />
+							<p th:if="${#fields.hasErrors('constructionYear')}"
+								th:errors="*{constructionYear}" class="error">Name error</p>
 						</div>
-						<div class="form-group" th:classappend="${#fields.hasErrors('plate')} ? has-error">
-							<label for="plate" th:text="#{plate}"> <abbr class="required" title="required"> * </abbr></label>
-							<input type="text" th:field="*{plate}" class="form-control" />
-							<p th:if="${#fields.hasErrors('plate')}" th:errors="*{plate}" class="error">Name error</p>
+						<div class="form-group"
+							th:classappend="${#fields.hasErrors('plate')} ? has-error">
+							<label for="plate" th:text="#{plate}"> <abbr
+								class="required" title="required"> * </abbr></label> <input type="text"
+								th:field="*{plate}" class="form-control" />
+							<p th:if="${#fields.hasErrors('plate')}" th:errors="*{plate}"
+								class="error">Name error</p>
 						</div>
 						<div class="form-group buttons buttons-line">
-							<a class="btn btn-default btn-lg btn-block" th:href="@{~/holinvan-web}">Cancel</a>
-							<button class="btn btn-lg btn-primary btn-block btn-next" type="button" th:utext="#{next}"><i class="fa fa-angle-right"></i></button>
+							<a class="btn btn-default btn-lg btn-block"
+								th:href="@{~/holinvan-web}">Cancel</a>
+							<button class="btn btn-lg btn-primary btn-block btn-next"
+								type="button" th:utext="#{next}">
+								<i class="fa fa-angle-right"></i>
+							</button>
 						</div>
 					</fieldset>
 					<fieldset>
 						<h2 th:text="#{5.2}"></h2>
 						<div class="form-group">
-							<label for="adults" th:text="#{adults}"> <abbr class="required" title="required"> * </abbr></label>
-							<select th:field="*{adults}" class="form-control">
+							<label for="adults" th:text="#{adults}"> <abbr
+								class="required" title="required"> * </abbr></label> <select
+								th:field="*{adults}" class="form-control">
 								<option value="0">0</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -68,8 +91,9 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<label for="kids" th:text="#{kids}"> <abbr class="required" title="required"> * </abbr></label>
-							<select th:field="*{kids}" class="form-control">
+							<label for="kids" th:text="#{kids}"> <abbr
+								class="required" title="required"> * </abbr></label> <select
+								th:field="*{kids}" class="form-control">
 								<option value="0">0</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -83,9 +107,10 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<label for="babys" class="col-sm-3 control-label" th:text="#{babies}"> <abbr class="required" title="required"> * </abbr>
-							</label>
-							<select th:field="*{babys}" class="form-control">
+							<label for="babys" class="col-sm-3 control-label"
+								th:text="#{babies}"> <abbr class="required"
+								title="required"> * </abbr>
+							</label> <select th:field="*{babys}" class="form-control">
 								<option value="0">0</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -99,8 +124,15 @@
 							</select>
 						</div>
 						<div class="form-group buttons buttons-line">
-							<button type="button"  class="btn btn-default btn-lg btn-block btn-previous" th:utext="#{previous}"><i class="fa fa-angle-left"></i></button>
-							<button class="btn btn-lg btn-primary btn-block btn-next" type="button" th:utext="#{next}"><i class="fa fa-angle-right"></i></button>
+							<button type="button"
+								class="btn btn-default btn-lg btn-block btn-previous"
+								th:utext="#{previous}">
+								<i class="fa fa-angle-left"></i>
+							</button>
+							<button class="btn btn-lg btn-primary btn-block btn-next"
+								type="button" th:utext="#{next}">
+								<i class="fa fa-angle-right"></i>
+							</button>
 						</div>
 					</fieldset>
 					<fieldset>
@@ -108,72 +140,129 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="checkbox">
-									<label>
-										<input type="checkbox" th:field="*{caracteristica.beds}">
-										<span th:text="#{beds}"></span>
+									<label> <input type="checkbox"
+										th:field="*{characteristic.beds}"> <span
+										th:text="#{beds}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
-									<label>
-										<input type="checkbox" th:field="*{caracteristica.kitchen}">
-										<span th:text="#{kitchen}"></span>
+									<label> <input type="checkbox"
+										th:field="*{characteristic.kitchen}"> <span
+										th:text="#{kitchen}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{caracteristica.living}">
-										<span th:text="#{living}"></span>
-									</label> 
-								</div>
-								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{caracteristica.bath}">
-										<span th:text="#{bath}"></span>
+									<label> <input type="checkbox"
+										th:field="*{characteristic.living}"> <span
+										th:text="#{living}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{caracteristica.awning}">
-										<span th:text="#{awning}"></span>
+									<label> <input type="checkbox"
+										th:field="*{characteristic.bath}"> <span
+										th:text="#{bath}"></span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<label> <input type="checkbox"
+										th:field="*{characteristic.awning}"> <span
+										th:text="#{awning}"></span>
 									</label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{caracteristica.terraceTable}">
-										<span th:text="#{terraceTable}"></span>
+									<label> <input type="checkbox"
+										th:field="*{characteristic.oven}"> <span
+										th:text="#{oven}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{caracteristica.climatize}">
-										<span th:text="#{climatize}"></span>
+									<label> <input type="checkbox"
+										th:field="*{characteristic.terraceChairs}"> <span
+										th:text="#{terraceChairs}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{caracteristica.tv}">
-										<span th:text="#{tv}"></span>
+									<label> <input type="checkbox"
+										th:field="*{characteristic.shower}"> <span
+										th:text="#{shower}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{caracteristica.fridge}">
-										<span th:text="#{fridge}"></span>
+									<label> <input type="checkbox"
+										th:field="*{characteristic.crockery}"> <span
+										th:text="#{crockery}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{caracteristica.closer}">
-										<span th:text="#{closer}"></span>
+									<label> <input type="checkbox"
+										th:field="*{characteristic.skilletsCasseroles}"> <span
+										th:text="#{skilletsCasseroles}"></span>
 									</label>
 								</div>
 							</div>
+
+							<div class="col-md-6">
+								<div class="checkbox">
+									<label> <input type="checkbox"
+										th:field="*{characteristic.cutlery}"> <span
+										th:text="#{cutlery}"></span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<label> <input type="checkbox"
+										th:field="*{characteristic.terraceTable}"> <span
+										th:text="#{terracetable}"></span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<label> <input type="checkbox"
+										th:field="*{characteristic.climatize}"> <span
+										th:text="#{a.c}"></span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<label> <input type="checkbox"
+										th:field="*{characteristic.tv}"> <span th:text="#{tv}"></span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<label> <input type="checkbox"
+										th:field="*{characteristic.fridge}"> <span
+										th:text="#{fridge}"></span>
+									</label>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="checkbox">
+									<label> <input type="checkbox"
+										th:field="*{characteristic.closer}"> <span
+										th:text="#{closet}"></span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<label> <input type="text"
+										th:field="*{characteristic.otherse}"> <span
+										th:text="#{others}"></span>
+									</label>
+								</div>
+
+
+
+							</div>
 						</div>
 						<div class="form-group buttons buttons-line">
-							<button type="button"  class="btn btn-default btn-lg btn-block btn-previous" th:utext="#{previous}"><i class="fa fa-angle-left"></i></button>
-							<button class="btn btn-lg btn-primary btn-block btn-next" type="button" th:utext="#{next}"><i class="fa fa-angle-right"></i></button>
+							<button type="button"
+								class="btn btn-default btn-lg btn-block btn-previous"
+								th:utext="#{previous}">
+								<i class="fa fa-angle-left"></i>
+							</button>
+							<button class="btn btn-lg btn-primary btn-block btn-next"
+								type="button" th:utext="#{next}">
+								<i class="fa fa-angle-right"></i>
+							</button>
 						</div>
 					</fieldset>
 
@@ -182,103 +271,388 @@
 						<div class="row">
 							<div class="col-md-6 col-md-offset-3">
 								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{servicio.cycle}">
-										<span th:text="#{bike}"></span>
+									<label> <input type="checkbox"
+										th:field="*{service.cycle}"> <span th:text="#{bike}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{servicio.umbrella}">
-										<span th:text="#{sun_umbrella}"></span>
+									<label> <input type="checkbox"
+										th:field="*{service.umbrella}"> <span
+										th:text="#{sun_umbrella}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{servicio.hammock}">
-										<span th:text="#{hammock}"></span>
+									<label> <input type="checkbox"
+										th:field="*{service.hammock}"> <span
+										th:text="#{hammock}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{servicio.bbq}">
-										<span th:text="#{bbq}"></span>
+									<label> <input type="checkbox"
+										th:field="*{service.bbq}"> <span th:text="#{bbq}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{servicio.towels}">
-										<span th:text="#{towel}"></span>
+									<label> <input type="checkbox"
+										th:field="*{service.towels}"> <span th:text="#{towel}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
-									<label> 
-										<input type="checkbox" th:field="*{servicio.bedSheets}">
-										<span th:text="#{bed_sheet}"></span>
+									<label> <input type="checkbox"
+										th:field="*{service.bedSheets}"> <span
+										th:text="#{bed_sheet}"></span>
 									</label>
 								</div>
 							</div>
+
+							<div class="col-md-6 col-md-offset-3">
+								<div class="checkbox">
+									<label> <input type="checkbox"
+										th:field="*{service.toaster}"> <span
+										th:text="#{toaster}"></span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<label> <input type="checkbox"
+										th:field="*{service.microwave}"> <span
+										th:text="#{microwave}"></span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<label> <input type="checkbox"
+										th:field="*{service.mixer}"> <span th:text="#{mixer}"></span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<label> <input type="checkbox"
+										th:field="*{service.pillows}"> <span
+										th:text="#{pillows}"></span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<label> <input type="text" th:field="*{service.other}">
+										<span th:text="#{other.extras}"></span>
+									</label>
+								</div>
+
+							</div>
 						</div>
 						<div class="form-group buttons buttons-line">
-							<button type="button"  class="btn btn-default btn-lg btn-block btn-previous" th:utext="#{previous}"><i class="fa fa-angle-left"></i></button>
-							<button class="btn btn-lg btn-primary btn-block btn-next" type="button" th:utext="#{next}"><i class="fa fa-angle-right"></i></button>
+							<button type="button"
+								class="btn btn-default btn-lg btn-block btn-previous"
+								th:utext="#{previous}">
+								<i class="fa fa-angle-left"></i>
+							</button>
+							<button class="btn btn-lg btn-primary btn-block btn-next"
+								type="button" th:utext="#{next}">
+								<i class="fa fa-angle-right"></i>
+							</button>
 						</div>
 					</fieldset>
 					<fieldset>
 						<h2 th:text="#{5.5}"></h2>
-							<div class="row">
-								<div class="col-md-6 col-md-offset-3">
-									<div class="checkbox">
-										<label> 
-											<input type="checkbox" th:field="*{norma.kids}">
-											<span th:text="#{kids}"></span>
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> 
-											<input type="checkbox" th:field="*{norma.pets}">
-											<span th:text="#{pets}"></span>
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> 
-											<input type="checkbox" th:field="*{norma.smoke}">
-											<span th:text="#{smokers}"></span>
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> 
-											<input type="checkbox" th:field="*{norma.party}">
-											<span th:text="#{party}"></span>
-										</label>
-									</div>
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3">
+								<div class="checkbox">
+									<label> <input type="checkbox" th:field="*{rule.kids}">
+										<span th:text="#{kids}"></span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<label> <input type="checkbox" th:field="*{rule.pets}">
+										<span th:text="#{pets}"></span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<label> <input type="checkbox" th:field="*{rule.smoke}">
+										<span th:text="#{smoke}"></span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<label> <input type="checkbox" th:field="*{rule.party}">
+										<span th:text="#{party}"></span>
+									</label>
 								</div>
 							</div>
-<!-- 						<div class="checkbox"> -->
-<!-- 							<label>  -->
-<!-- 								<input type="checkbox" th:field="*{norma.other}"> -->
-<!-- 								<span th:text="#{others}"></span> -->
-<!-- 							</label> -->
-<!-- 						</div> -->
+						</div>
+						<div class="checkbox">
+							<label> <input type="checkbox" th:field="*{other.rules}">
+								<span th:text="#{rule.other}"></span>
+							</label>
+						</div>
 						<div class="form-group buttons buttons-line">
-							<button type="button"  class="btn btn-default btn-lg btn-block btn-previous" th:utext="#{previous}"><i class="fa fa-angle-left"></i></button>
-							<button class="btn btn-lg btn-primary btn-block btn-next" type="button" th:utext="#{next}"><i class="fa fa-angle-right"></i></button>
+							<button type="button"
+								class="btn btn-default btn-lg btn-block btn-previous"
+								th:utext="#{previous}">
+								<i class="fa fa-angle-left"></i>
+							</button>
+							<button class="btn btn-lg btn-primary btn-block btn-next"
+								type="button" th:utext="#{next}">
+								<i class="fa fa-angle-right"></i>
+							</button>
 						</div>
 					</fieldset>
 					<fieldset>
 						<h2 th:text="#{5.6}"></h2>
-						<div class="form-group" th:classappend="${#fields.hasErrors('name')} ? has-error">
-							<label th:text="#{caravan_nickname}"> <abbr class="required" title="required"> * </abbr></label>
-							<input type="text" th:field="*{name}" class="form-control" />
-							<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error">Name error</p>
+						<div class="form-group"
+							th:classappend="${#fields.hasErrors('name')} ? has-error">
+							<label th:text="#{caravan_nickname}"> <abbr
+								class="required" title="required"> * </abbr></label> <input type="text"
+								th:field="*{name}" class="form-control" />
+							<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+								class="error">Name error</p>
 						</div>
-						<div class="form-group" th:classappend="${#fields.hasErrors('description')} ? has-error">
+						<div class="form-group"
+							th:classappend="${#fields.hasErrors('description')} ? has-error">
 							<label th:text="#{description}"> </label><br>
-							<textarea name="why-join" class="form-control" th:field="*{description}" id="why-join"></textarea>
+							<textarea name="why-join" class="form-control"
+								th:field="*{description}" id="why-join"></textarea>
 						</div>
 						<div class="form-group buttons buttons-line">
-							<button type="button"  class="btn btn-default btn-lg btn-block btn-previous" th:utext="#{previous}"><i class="fa fa-angle-left"></i></button>
-							<button class="btn btn-lg btn-primary btn-block btn-next" type="submit" th:utext="#{t.save}"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+							<button type="button"
+								class="btn btn-default btn-lg btn-block btn-previous"
+								th:utext="#{previous}">
+								<i class="fa fa-angle-left"></i>
+							</button>
+							<button class="btn btn-lg btn-primary btn-block btn-next"
+								type="button" th:utext="#{next}">
+								<i class="fa fa-floppy-o" aria-hidden="true"></i>
+							</button>
+						</div>
+					</fieldset>
+					<!-- 5.7 -->
+					<fieldset>
+						<h2 th:text="#{select.destination.camping}"></h2>
+
+
+						<select class="form-control" th:field="*{idCamping}">
+							<option th:each="camping:${campings}" th:value="${camping.id}">
+								<p th:text=${camping.name}></p>
+							</option>
+						</select>
+
+
+
+						<div class="form-group buttons buttons-line">
+							<button type="button"
+								class="btn btn-default btn-lg btn-block btn-previous"
+								th:utext="#{previous}">
+								<i class="fa fa-angle-left"></i>
+							</button>
+							<button class="btn btn-lg btn-primary btn-block btn-next"
+								type="button" th:utext="#{next}">
+								<i class="fa fa-floppy-o" aria-hidden="true"></i>
+							</button>
+						</div>
+					</fieldset>
+					<!-- 5.8 -->
+					<fieldset>
+						<div id='d1' style='display: none'>
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3">
+									<div class="checkbox">
+										<label> <input type="radio"
+											th:field="*{insuranceOffer}" value="0"> <span
+											th:text="#{no}"></span>
+										</label>
+									</div>
+									<div class="checkbox">
+										<label> <input type="radio"
+											th:field="*{insuranceOffer}" value="1"> <span
+											th:text="#{yes}"></span>
+										</label>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-md-offset-3">
+							<div class="checkbox">
+								<label> <input id='r1' type="radio"
+									th:field="*{insurance}" value="0"> <span
+									th:text="#{no}"></span>
+								</label>
+							</div>
+							<div class="checkbox">
+								<label> <input id='r2' type="radio"
+									th:field="*{insurance}" value="1"> <span
+									th:text="#{yes}"></span>
+								</label>
+							</div>
+
+						</div>
+						<div class="form-group buttons buttons-line">
+							<button type="button"
+								class="btn btn-default btn-lg btn-block btn-previous"
+								th:utext="#{previous}">
+								<i class="fa fa-angle-left"></i>
+							</button>
+							<button class="btn btn-lg btn-primary btn-block btn-next"
+								type="button" th:utext="#{next}">
+								<i class="fa fa-floppy-o" aria-hidden="true"></i>
+							</button>
+						</div>
+					</fieldset>
+					<!-- 5.9 -->
+					<fieldset>
+						<h2 th:text="#{move.caravan}"></h2>
+
+						<select name="whoTrans" id="whoTrans" class="form-control">
+							<option id="mySelf" value="mySelf" th:text="#{mySelf}"></option>
+							<option id="myParking" value="myParking" th:text="#{myParking}"></option>
+							<option id="traveler" value="traveler" th:text="#{traveler}"></option>
+							<option id="serviceTrans" value="serviceTrans"
+								th:text="#{serviceTrans}"></option>
+						</select>
+
+						<div id="row_dim" class="form-group" th:classappend=="${#fields.hasErrors('infTransName')} ? has-error">
+
+							<div>
+
+								<label for="infTransName" th:text="#{infTransName}"> </label> <input
+									type="text" th:field="*{infTransName}" />
+								<p th:if="${#fields.hasErrors('infTransName')}"
+									th:errors="*{infTransName}" class="error">infTransName
+									error</p>
+							</div>
+
+							<div>
+								<label for="infTransAdress" th:text="#{infTransAdress}">
+								</label> <input type="text" th:field="*{infTransAdress}" />
+								<p th:if="${#fields.hasErrors('infTransAdress')}"
+									th:errors="*{infTransAdress}" class="error">infTransAdress
+									error</p>
+
+							</div>
+
+							<div>
+								<label for="infTransTelephone" th:text="#{infTransTelephone}">
+								</label> <input type="text" th:field="*{infTransTelephone}" />
+								<p th:if="${#fields.hasErrors('infTransTelephone')}"
+									th:errors="*{infTransTelephone}" class="error">infTransTelephone
+									error</p>
+							</div>
+
+							<div>
+								<label for="infTransEmail" th:text="#{infTransEmail}"> </label>
+								<input type="text" th:field="*{infTransEmail}" />
+								<p th:if="${#fields.hasErrors('infTransEmail')}"
+									th:errors="*{infTransEmail}" class="error">infTransEmail
+									error</p>
+							</div>
+
+							<div>
+								<label for="infTransContact" th:text="#{infTransContact}">
+								</label> <input type="text" th:field="*{infTransContact}" />
+								<p th:if="${#fields.hasErrors('infTransContact')}"
+									th:errors="*{infTransContact}" class="error">infTransContact
+									error</p>
+
+							</div>
+						</div>
+
+						<div class="form-group buttons buttons-line">
+							<button type="button"
+								class="btn btn-default btn-lg btn-block btn-previous"
+								th:utext="#{previous}">
+								<i class="fa fa-angle-left"></i>
+							</button>
+							<button class="btn btn-lg btn-primary btn-block btn-next"
+								type="button" th:utext="#{next}">
+								<i class="fa fa-floppy-o" aria-hidden="true"></i>
+							</button>
+						</div>
+					</fieldset>
+					<!--6.1++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+					<fieldset>
+						<h4 th:text="#{show.recommendation}"></h4>
+
+						<h4 th:text="#{tip}"></h4>
+						<h4 th:text="#{tip.recommendation}"></h4>
+
+						<div class="form-group buttons buttons-line">
+							<button type="button"
+								class="btn btn-default btn-lg btn-block btn-previous"
+								th:utext="#{previous}">
+								<i class="fa fa-angle-left"></i>
+							</button>
+
+							<button class="btn btn-lg btn-primary btn-block btn-next"
+								type="button" th:utext="#{next}">
+								<i class="fa fa-floppy-o" aria-hidden="true"></i>
+							</button>
+						</div>
+					</fieldset>
+					<!--6.2++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+					<fieldset>
+						<h4 th:text="#{select.booking}"></h4>
+
+						<div class="form-group">
+							<select th:field="*{reservAdvanceDate}" class="form-control">
+								<option value="Dias">Día/s</option>
+								<option value="Semanas">Semana/s</option>
+								<option value="Meses">Mes/es</option>
+							</select>
+
+							<h4 th:text="#{tip}"></h4>
+							<h4 th:text="#{tip.select.booking}"></h4>
+
+							<div class="form-group" th:classappend=="${#fields.hasErrors('reservAdvanceTime')} ? has-error">
+
+								<label for="reservAdvanceTime" class="col-sm-3 control-label"
+									th:text="#{reservAdvanceTime}"> <abbr class="required"
+									title="required"> * </abbr>
+								</label> <input type="text" th:field="*{reservAdvanceTime}"
+									class="form-control" />
+
+								<p th:if="${#fields.hasErrors('reservAdvanceTime')}"
+									th:errors="*{reservAdvanceTime}" class="error">Name error</p>
+							</div>
+						</div>
+
+						<div class="form-group buttons buttons-line">
+							<button type="button"
+								class="btn btn-default btn-lg btn-block btn-previous"
+								th:utext="#{previous}">
+								<i class="fa fa-angle-left"></i>
+							</button>
+							<button class="btn btn-lg btn-primary btn-block btn-next"
+								type="button" th:utext="#{next}">
+								<i class="fa fa-floppy-o" aria-hidden="true"></i>
+							</button>
+						</div>
+					</fieldset>
+
+					<!--6.3++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+					<fieldset>
+						<h4 th:text="#{select.availability}"></h4>
+
+						<div class="form-group">
+
+							<label for="stayLengthMin" th:text="#{stayLengthMin}"><abbr
+								class="required" title="required"> * </abbr></label> <input type="text"
+								th:field="*{stayLengthMin}" class="form-control" />
+						</div>
+
+						<div class="form-group">
+							<label for="stayLengthMax" th:text="#{stayLengthMax}"><abbr
+								class="required" title="required"> * </abbr></label> <input type="text"
+								th:field="*{stayLengthMax}" class="form-control" />
+						</div>
+
+						<h4 th:text="#{tip}"></h4>
+						<h4 th:text="#{tip.text}"></h4>
+						
+						<div class="form-group buttons buttons-line">
+							<button type="button"
+								class="btn btn-default btn-lg btn-block btn-previous"
+								th:utext="#{previous}">
+								<i class="fa fa-angle-left"></i>
+							</button>
+							<button class="btn btn-lg btn-primary btn-block btn-next"
+								type="button" th:utext="#{next}">
+								<i class="fa fa-floppy-o" aria-hidden="true"></i>
+							</button>
 						</div>
 					</fieldset>
 				</form>
@@ -290,3 +664,6 @@
 	<script th:src="@{/resources/js/caravan.js}"></script>
 </th:block>
 </html>
+<!--  
+<button class="btn btn-lg btn-primary btn-block btn-next" type="submit" th:utext="#{t.save}"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+ -->
