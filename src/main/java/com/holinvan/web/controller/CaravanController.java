@@ -32,6 +32,7 @@ public class CaravanController {
 	private final static String CARAVAN = PREFIX + "gestionCaravanas";
 	private final static String CALENDAR = PREFIX + "calendar";
 	private final static String PRICE = PREFIX + "price";
+	private final static String SUCCESS = PREFIX + "success";
 	
 	@Autowired
 	Caravanaservice caravanaservice;
@@ -71,7 +72,7 @@ public class CaravanController {
 
 			model.addAttribute("caravana", caravana);
 
-			return "caravan/paginaDePruebas";
+			return SUCCESS;
 		}
 		System.out.println("ERRORS: " + result.getFieldErrors());
 		return CARAVAN;

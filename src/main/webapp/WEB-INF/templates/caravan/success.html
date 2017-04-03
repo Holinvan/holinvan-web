@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/simple}"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<link th:href="@{/resources/css/form-elements.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/media-queries.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/style.css}" rel="stylesheet" />
+</head>
+<meta charset="UTF-8">
+<title>Correcto</title>
+</head>
+<body>
+	<div class="container" layout:fragment="content">
+		<h1>TU CARAVANA SE HA AÑADIDO CORRECTAMENTE</h1>
+		
+		<form th:action="@{lista}" method="get">
+			<button type="submit" class="btn btn-primary">Lista de caravanas</button>
+		</form>
+
+
+
+	</div>
+
+
+
+
+</body>
+</html>
