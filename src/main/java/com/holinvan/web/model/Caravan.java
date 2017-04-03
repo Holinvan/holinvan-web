@@ -17,8 +17,6 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 
 
-
-
 @Entity
 public class Caravan implements Serializable {
 	

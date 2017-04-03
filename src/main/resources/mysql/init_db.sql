@@ -38,25 +38,30 @@ CREATE TABLE IF NOT EXISTS user_data (
 	email varchar (30),
 	name varchar(30) NOT NULL,
 	surname varchar(30) NOT NULL,
-	genre int(1),
+  	nif varchar (10) NOT NULL DEFAULT '',
+	genre varchar(1),
 	birthDate date,
-	idTelephone int(2),
+	idTelephone int(3),
 	telephone varchar(15),
 	address varchar (30),
 	country varchar (25),
 	CP varchar (10),
 	city varchar (25),
-	nif varchar (10),
-	namef varchar(30),
-	surnamef varchar(30),
-	idTelephonef int(2),
-	telephonef varchar(15),
-	addressf varchar (30),
-	countryf varchar (25),
-	CPf varchar (10),
-	cityf varchar (25),
+	rating float (2),
+	rates int (8),
   	KEY fk_user_data (user_id),
   	CONSTRAINT fk_user_data FOREIGN KEY (user_id) REFERENCES users (id)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS user_facturation_data (
+	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id int(11) NOT NULL,
+	niff varchar (10),
+	namef varchar(30),
+	addressf varchar (30),
+	emailf varchar (30),
+    KEY fk_user_facturation_data (user_id),
+  	CONSTRAINT fk_user_facturation_data FOREIGN KEY (user_id) REFERENCES users (id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS UserConnection (
@@ -78,26 +83,53 @@ CREATE UNIQUE INDEX UserConnectionRank on UserConnection(userId, providerId, ran
 /* ------------- CAMPING ------------- */
 
 CREATE TABLE IF NOT EXISTS campings (
-    id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    owner int(11),
-    name varchar(30) NOT NULL DEFAULT '',
-    idTelephone int(3),
-    telephone varchar(15),
-    address varchar (30),
-    country varchar (25),
-    cp varchar (10),
-    city varchar (25),
-    rating float (2),
-    rates int (8),
+	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name varchar(30) NOT NULL DEFAULT '',
+	idTelephone int(3),
+	telephone varchar(15),
+	address varchar (30),
+	country varchar (25),
+	cp varchar (10),
+	city varchar (25),
+	rating float (2),
+	rates int (8),
     schedule varchar (20),
-    cif varchar (10) NOT NULL DEFAULT '',
-    namef varchar(30) NOT NULL DEFAULT '',
-    addressf varchar (30) NOT NULL DEFAULT '',
-    emailf varchar (30) NOT NULL DEFAULT '',
-    description text,
-    ubication varchar (250) NOT NULL DEFAULT '',
-    zone varchar (30),
-    CONSTRAINT fk_camping_idowner FOREIGN KEY (owner) REFERENCES users (id)
+	cif varchar (10) NOT NULL DEFAULT '',
+	namef varchar(30) NOT NULL DEFAULT '',
+	addressf varchar (30) NOT NULL DEFAULT '',
+	emailf varchar (30) NOT NULL DEFAULT '',
+	description text,
+	location varchar (250) NOT NULL DEFAULT '',
+	zone varchar (30)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS campings_services (
+	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  	camping_id int(11) NOT NULL,
+	animation boolean,
+    pool boolean,
+    heated_pool boolean,
+    gym boolean,
+    wifi boolean,
+    supermarket boolean,
+    beach boolean,
+    disco boolean,
+    doctor boolean,
+    kindergarten boolean,
+    pub boolean,
+    minigolf boolean,
+    wellness boolean,
+    atm boolean,
+    defibrillator boolean,
+    laundry boolean,
+    dogs boolean,
+    snack_bar boolean,
+    restaurant boolean,
+    tennis boolean,
+    paddel boolean,
+    football boolean,
+  	KEY fk_campings_service (camping_id),
+  	CONSTRAINT fk_campings_service FOREIGN KEY (camping_id) REFERENCES campings (id)
 ) ENGINE=InnoDB;
 
 /* -------------  CARAVANA ------------- */
@@ -120,6 +152,8 @@ create table if not exists caravan (
     foreign key (id_camping)
     references campings (id),
     
+    stay_length_min varchar (10),
+    stay_length_max varchar (10),
  	who_trans varchar (15),
 	inf_trans_name varchar(20),
 	inf_trans_adress varchar (50),
@@ -198,6 +232,16 @@ create table if not exists availability (
     end_date varchar (20)
 );
 
+CREATE TABLE IF NOT EXISTS price (
+    id INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
+    id_caravan INTEGER(10),
+    FOREIGN KEY (id_caravan)
+        REFERENCES caravan (id),
+    init_date VARCHAR(20),
+    end_date VARCHAR(20),
+    price DECIMAL(10)
+);
+
 /* ------------- INSERT MOCK DATA ------------- */
 
 INSERT INTO items (name, field1, field2) VALUES ('lorem', 'ipsum', 'dolor');
@@ -219,8 +263,8 @@ VALUES (1,'silentxavi@yahoo.es', 'Xavier', 'shurmano', '1', '1999-02-09', '34', 
 (2,'cesarAsturianu@gmail.com', 'Cesare', 'Augusto', '1', '1912-09-17', '34', '654321789', 'c/de la Sidra', 'Russiano', '09876'),
 (3,'victor_tgn_69@hotmail.com', 'Victor', 'Condemor Praderar', '1', '1992-09-25', '33', '654123989', 'c/de los Sueños 14 7oC', 'Vietnam', '08081'),
 (4,'sevillana_69@yahoo.es', 'Beatrix', 'Lestrange', '0', '1990-08-16', '45', '666777885', 'a/De la Grasia n89 6o2a', 'Andalucia', '98798');
-INSERT INTO campings (owner, name, idTelephone, telephone, address, country, CP, city)
-VALUES (1, 'CAMPING PAQUITO', '34', '23456789', 'a/Paquito\'s road', 'Irak', '67832', 'Bagdad'),
-('2', 'CAMPING PEPITO', '34', '2342345', 'a/Pepito\'s road', 'Vietnam', '23332', 'Hanoi'),
-('3', 'CAMPING CARLITOS', '34', '23454576', 'a/Carlito\'s road', 'Russia', '98765', 'Vladivostok'),
-('4', 'CAMPING MARIA', '34', '234986', 'a/Maria\'s road', 'Madagascar', '67999', 'Antananarivo');
+INSERT INTO campings (name, idTelephone, telephone, address, country, CP, city)
+VALUES ('CAMPING PAQUITO', '34', '23456789', 'a/Paquito\'s road', 'Irak', '67832', 'Bagdad'),
+('CAMPING PEPITO', '34', '2342345', 'a/Pepito\'s road', 'Vietnam', '23332', 'Hanoi'),
+('CAMPING CARLITOS', '34', '23454576', 'a/Carlito\'s road', 'Russia', '98765', 'Vladivostok'),
+('CAMPING MARIA', '34', '234986', 'a/Maria\'s road', 'Madagascar', '67999', 'Antananarivo');

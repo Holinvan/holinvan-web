@@ -2,61 +2,57 @@ package com.holinvan.web.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
-/**
- * The persistent class for the campings database table.
- * 
- */
 @Entity
 @Table(name="campings")
-
 public class Camping implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-
+	@NotEmpty
+	@Size(max=30)
 	private String address;
-
+	@Size(max=30)
 	private String addressf;
-
+	@Size(max=10)
 	private String cif;
-
+	@Size(max=25)
 	private String city;
-
+	@Size(max=25)
 	private String country;
-
+	@Size(max=10)
 	private String cp;
-
-	@Lob
+	@Column(columnDefinition = "TEXT")
 	private String description;
-
-	private String emailf;
-
-	private Integer idTelephone;
-
-	private String name;
-
-	private String namef;
-
-	private Integer owner;
-
-	private Integer rates;
-
-	private float rating;
-
+	@Size(max=20)
 	private String schedule;
-
+	@Email
+	@Size(max=30)
+	private String emailf;
+	private Integer idTelephone;
+	private String name;
+	private String namef;
+	private Integer rates;
+	private float rating;
 	private String telephone;
-
-	private String ubication;
-
+	private String location;
 	private String zone;
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	public Camping() {
 	}
@@ -141,6 +137,14 @@ public class Camping implements Serializable {
 		this.idTelephone = idTelephone;
 	}
 
+	public String getLocation() {
+		return this.location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 	public String getName() {
 		return this.name;
 	}
@@ -155,14 +159,6 @@ public class Camping implements Serializable {
 
 	public void setNamef(String namef) {
 		this.namef = namef;
-	}
-
-	public Integer getOwner() {
-		return this.owner;
-	}
-
-	public void setOwner(Integer owner) {
-		this.owner = owner;
 	}
 
 	public Integer getRates() {
@@ -195,14 +191,6 @@ public class Camping implements Serializable {
 
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
-	}
-
-	public String getUbication() {
-		return this.ubication;
-	}
-
-	public void setUbication(String ubication) {
-		this.ubication = ubication;
 	}
 
 	public String getZone() {
