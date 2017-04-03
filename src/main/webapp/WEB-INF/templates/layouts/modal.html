@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body layout:fragment="modal(modalTitle)">
+  	<div class="modal fade" tabindex="-1">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header" layout:fragment="modal-head">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" th:text="${modalTitle}">Modal title</h4>
+	      </div>
+	      <div class="modal-body" layout:fragment="modal-content">
+	        <p>One fine body&hellip;</p>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</body>
+</html>

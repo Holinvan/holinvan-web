@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link th:href="@{/resources/css/holinvan-web.css}" rel="stylesheet"/>
+    <link rel="shortcut icon" th:href="@{/resources/img/favicon.ico}" type="image/x-icon">
+	<link rel="icon" th:href="@{/resources/img/favicon.ico}" type="image/x-icon">
+  	<title>Layout page</title>
+</head>
+<body>
+  	<nav th:replace="layouts/fragments/navbar :: navbar"> 
+  		Navbar
+	</nav>
+  	<div class="container" layout:fragment="content">
+    	<p>Content</p>
+  	</div> 
+</body>
+<script th:src="@{/resources/js/jquery.min.js}"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+<script th:src="@{/resources/js/holinvan-web.js}"></script>
+<script th:src="@{/resources/js/scripts.js}"></script>
+<script th:src="@{/resources/js/jquery.backstretch.min.js}"></script>
+</html>

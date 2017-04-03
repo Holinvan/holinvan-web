@@ -1,0 +1,265 @@
+.error {
+    color: #C92026;
+    margin: 1% 0 0 4%;
+}
+.table tbody>tr>td.vert-align{
+    vertical-align: middle;
+}
+abbr[title] {
+    border-bottom: none;
+}
+.required {
+	color: #a94442;
+}
+.form-intro {
+	margin-bottom: 2em;
+	color: grey;
+	font-size: 0.9em;
+}
+i.fa {
+	margin-right: 0.2em;
+}
+.clickable-row {
+	cursor: pointer;
+}
+body {
+  background-color: #f5f8fa;
+}
+
+form input{
+	font-family: 'Open Sans', sans-serif;
+}
+.form-signin {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  max-width: 330px;
+  margin: 0 auto;
+}
+form.social{
+  padding-bottom: 10px;
+}
+.form-signin .form-signin-heading {
+  margin-bottom: 10px;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 8px;
+  font-size: small;
+  margin-bottom: 0.8rem;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.btn-lg {
+    font-size: 15px;
+}
+.form {
+    margin-bottom: 1rem;
+}
+.signup-or-separator {
+    background: none;
+    height: 50px;
+    position: relative;
+    text-align: center;
+}
+.signup-or-separator--text {
+    background-color: #f5f8fa;
+    display: inline-block;
+    padding: 8px;
+}
+.signup-or-separator hr {
+    margin: -24px auto 10px;
+    width: 100%;
+}
+hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 0;
+    border-top: 1px solid #dce0e0;
+}
+.signup-footer {
+	display:flex;
+	align-items:center;
+}
+.btn-default {
+    color: #45837b;
+    background-color: #fff;
+    border-color: #45837b;
+}
+
+.btn-default:hover {
+    color: #fff;
+    background-color: #45837b;
+    border-color: #45837b;
+}
+
+div.signup-footer div {
+	padding: 0px;
+}
+
+h1,h2,h3,h4 {
+	font-family: 'Josefin Sans', sans-serif;
+	color:#636c72;
+}
+form h2 {
+	margin: 4% 0% 6% 0%;
+}
+form label {
+	color: #636c72;
+}
+.navbar {
+   background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+}
+
+.navbar-nav>li>a {
+    color: #545454;
+}
+.nav>li>a:hover, .nav>li>a:focus {
+    text-decoration: none;
+    background-color: transparent;
+}
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+    background-color: transparent;
+    border-color: none;
+}
+.dropdown-menu {
+	border-radius: 0px;
+}
+.caret {
+	margin-left: 5px;
+}
+.navbar-right {
+    margin-top: 2%;
+}
+.progress {
+    height: 8px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: #ccc;
+    border-radius: 0px;
+}
+.progress-bar {
+    background-color: #1D4B72;
+}
+
+#caravanForm fieldset {
+	display: none; 
+	overflow: hidden; 
+}
+#caravanForm input{
+	font-family: 'Open Sans', sans-serif;
+	color: #636c72;
+}
+#caravanForm h1 {
+	margin-bottom: 10%;
+}
+.header-publish-caravan {
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 30px;
+    height: 60px;
+    display:flex;
+	align-items:center;
+	width: auto;
+}
+.title-progress {
+	margin-left: 3%;
+	margin-top: 1.5%;
+}
+.buttons {
+	margin-top: 10%;
+}
+
+select.telephone-input, input.telephone-input{
+	display: inline-block;
+}
+select.telephone-input {
+	width: 34%;
+}
+input.telephone-input {
+	width: 64%;
+}
+label.telephone-input {
+	display: block;
+}
+.btn.outline {
+	background: none;
+    padding: 12px 22px;
+    color: #FFF;
+    border-color: #FFF;
+}
+.btn-primary.outline {
+	border: 2px solid #FFF;
+	color: #FFF;
+}
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+	color: #45837b;
+	border-color: #45837b;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+	border-color: #276056;
+	color: #276056;
+	box-shadow: none;
+}
+.btn {
+	border-radius: 0px;
+}
+.registration {
+	margin-top: 3%;
+}
+.registration div.brand {
+	margin:5%;
+}
+.registration div.form-group {
+	margin-top:8%;
+}
+
+.buttons-line .btn {
+	width: 49%;
+	display: inline-block;
+	margin-top: 0px;
+}
+
+@media (min-width: 768px) {
+	#caravanForm.form-group {
+	    width: 70%;
+	}	
+	.logo-desktop {
+		display: inline;
+	}
+	.logo-mobile {
+		display: none;
+	}
+	.lead {
+	    font-size: 16px;
+	}
+}
+
+@media (max-width: 768px) {
+	.logo-desktop {
+		display: none;
+	}
+	.logo-mobile {
+		display: inline;
+	}
+	.title-progress {
+	    margin-left: 6%;
+	    margin-top: 5.5%;
+	}
+}

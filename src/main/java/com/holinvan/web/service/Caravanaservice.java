@@ -1,0 +1,45 @@
+package com.holinvan.web.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
+
+import com.holinvan.web.model.Caravana;
+import com.holinvan.web.repository.CaravanaRepository;
+
+@Service
+public class Caravanaservice {
+
+	@Autowired
+	CaravanaRepository caravanaRepository;
+	
+	@Transactional
+	public boolean caravanaAlreadyExists(Caravana caravana,BindingResult result){
+		if(caravanaRepository.findByPlate(caravana.getPlate())==null){
+			return false;			
+		}else{
+			result.rejectValue("plate", "caravanaAlreadyExists");
+			return true;
+		}
+	}
+	@Transactional
+	public Caravana addCaravana(Caravana caravana){
+
+		 return caravanaRepository.save(caravana);
+	}
+
+	@Transactional
+	public void seleccionarPersonas(Caravana caravana, BindingResult result)
+	{
+			caravana = caravanaRepository.findByPlate(caravana.getPlate());
+			
+			caravana.setAdults(caravana.getAdults());
+			caravana.setBabys(caravana.getBabys());
+			caravana.setKids(caravana.getKids());
+			
+			caravanaRepository.save(caravana);
+		}
+		
+		
+	}

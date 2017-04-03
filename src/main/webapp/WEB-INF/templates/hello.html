@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/cover}" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <title>Holinvan - Share your way</title>
+</head>
+<body>
+	<div class="masthead clearfix" layout:fragment="nav">
+		<div class="inner">
+        	<a class="masthead-brand" th:href="@{~/holinvan-web}"><img th:src="@{/resources/img/logo_min_w.png}"></a>
+          	<nav>
+	            <ul class="nav masthead-nav">
+	              	<li><a th:href="@{/caravana/add}">Caravans</a></li>
+			        <li><a th:href="@{/listCampings}">Campings</a></li>
+			        <li sec:authorize="isAnonymous()"><a th:href="@{/login}">Log In</a></li>
+			        <li sec:authorize="isAnonymous()"><a th:href="@{/register}">Sign Up</a></li>
+			        <li sec:authorize="isAuthenticated()" class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> [[${#httpServletRequest.remoteUser}]]<span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+			            <li><a th:href="@{/info}">My account</a></li>
+			            <li><a th:href="@{/facturation-data}">Facturation</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a href="javascript: document.logoutForm.submit()">LogOut</a>
+			            	<form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+			           			<input type="submit" value="Sign Out"/>
+			        		</form>
+			            </li>
+			          </ul>
+			        </li>
+	            </ul>
+          	</nav>
+       </div>
+    </div>
+    <div class="inner cover text-center" layout:fragment="cover">
+    	<div class="row">
+    		<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+	    		<h1 class="cover-heading">Share your way</h1>
+		        <p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa</p>
+		        <p class="lead">
+		          <a th:href="@{/caravana/add}" class="btn btn-primary outline">PUBLISH YOUR CARAVAN</a>
+		        </p>
+    		</div>
+    	</div>	
+    </div>
+</body>
+</html>

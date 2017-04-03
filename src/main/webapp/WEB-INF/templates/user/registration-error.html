@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/simple}">
+<head>
+	<title th:text="#{formRegistrationBoth.complete}"></title>
+</head>
+<body>
+	<div class="container registration text-center" layout:fragment="content">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+				<div class="brand">
+					<img th:src="@{/resources/img/logo_min_m.png}">
+				</div>
+				<div class="alert alert-danger">
+    				<strong th:text="#{formRegistrationBoth.failed}"></strong> <h3 th:text="#{formRegistrationBoth.emailFailed}"></h3>
+  				</div>
+				<div style="width: 100px; margin: 0 auto;">
+        			<img src="https://image.flaticon.com/icons/svg/226/226653.svg">
+    			</div>
+    			<div class="form-group">
+    				<a class="btn btn-primary" th:href="@{/register}">Back to Register</a>
+    			</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

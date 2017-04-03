@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/simple}">
+	<head>
+		<title>Sign Up</title>
+	</head>
+	<body>
+		<div class="container" layout:fragment="content">
+			<div class="row form-signin">
+		    	<div th:if="${(param.signup != null) and (param.signup[0] == 'true')}" class="alert alert-warning" role="alert">
+		    		No account exists for that login. Try signing up instead
+		    	</div>
+		    	<form th:action="@{/register}" method="post" th:object="${user}">
+					<h2 class="form-signin-heading">Please sign up</h2>
+				    <label for="username" class="sr-only">Username</label>
+				    <input type="text" id="username" name="username" placeholder="Email" class="form-control" required autofocus/>
+				    <label for="password" class="sr-only">Password</label>
+				    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required/>
+				    <button class="btn btn-primary btn-block" type="submit">Sign up</button>
+		     	</form>  
+		     	<div class="signup-or-separator">
+	    			<span class="h6 signup-or-separator--text">or</span>
+	    			<hr>
+	  			</div>
+		   		<form th:action="@{/signin/facebook}" method="post" class="social">
+		   			<input type="hidden" name="scope" value="public_profile" />
+		   			<button class="btn btn-default btn-block" type="submit"><i class="fa fa-facebook" aria-hidden="true"></i> Sign up with Facebook</button>
+				</form>
+				<form th:action="@{/signin/google}" method="post" class="social">
+		    		<input type="hidden" name="scope" value="email https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.me" />
+		    		<button type="submit" class="btn btn-default btn-block"><i class="fa fa-google" aria-hidden="true"></i> Sign up with Google</button>
+				</form>
+				<hr>
+				<div class="signup-footer">
+					<div class="col-sm-9 text-left">
+						Already have an <b>Holinvan</b> account?
+					</div>
+					<div class="col-sm-3 text-right">
+						<a class="btn btn-default" th:href="@{/login}" role="button">Log In</a>
+					</div>
+				</div>
+            </div>
+        </div>
+	</body>
+</html>
