@@ -72,6 +72,22 @@ public class Caravan implements Serializable {
 	private Integer availabilityTime;
 	@Column(name = "stay_length_min")
 	private String stayLengthMin;
+	public String getStayLengthMin() {
+		return stayLengthMin;
+	}
+
+	public void setStayLengthMin(String stayLengthMin) {
+		this.stayLengthMin = stayLengthMin;
+	}
+
+	public String getStayLengthMax() {
+		return stayLengthMax;
+	}
+
+	public void setStayLengthMax(String stayLengthMax) {
+		this.stayLengthMax = stayLengthMax;
+	}
+
 	@Column(name = "stay_length_max")
 	private String stayLengthMax;
 
@@ -323,22 +339,7 @@ public class Caravan implements Serializable {
 	public void setService(Service service) {
 		this.service = service;
 	}
-	public String getStayLengthMin() {
-		return stayLengthMin;
-	}
-
-	public void setStayLengthMin(String stayLengthMin) {
-		this.stayLengthMin = stayLengthMin;
-	}
-
-	public String getStayLengthMax() {
-		return stayLengthMax;
-	}
-
-	public void setStayLengthMax(String stayLengthMax) {
-		this.stayLengthMax = stayLengthMax;
-	}
-
+	
 	public ArrayList<Availability> getAvailabilities() {
 		return availabilities;
 	}

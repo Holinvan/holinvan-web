@@ -16,7 +16,13 @@ public class CampingService {
 	CampingRepository campingRepository; 
 	
 	@Transactional
-	public List <Camping> getCamping(){
+	public List <Camping> getAllCampings(){
 	return campingRepository.findAll();
 	}
+	
+	@Transactional
+	public Camping addNewCamping(Camping camping){
+		return campingRepository.save(camping);
+	}
+	
 }

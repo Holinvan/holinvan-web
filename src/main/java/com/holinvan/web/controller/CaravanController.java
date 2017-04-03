@@ -25,7 +25,7 @@ import com.holinvan.web.validator.CaravanaValidator;
 @Controller
 @RequestMapping(value = "/caravana")
 
-public class CaravanaController {
+public class CaravanController {
 
 	private final static String PREFIX = "caravan/";
 	private final static String LIST = PREFIX + "caravanList";
@@ -51,7 +51,7 @@ public class CaravanaController {
 		
 
 		
-		model.addAttribute("campings", campingService.getCamping());
+		model.addAttribute("campings", campingService.getAllCampings());
 
 		return CARAVAN;
 	}
