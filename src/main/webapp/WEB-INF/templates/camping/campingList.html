@@ -8,6 +8,9 @@
 <link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet" />
 <link th:href="@{/resources/css/spring-base-project.css}"
 	rel="stylesheet" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <head>
 <title th:text="#{title.page.items}"></title>
 </head>
@@ -55,46 +58,47 @@
 							       
 							       <div class="panel-body">
                                 <div class="row">
-
-
-                                    <div style="float: left; width: 50%;">
+                                
+                                <div style="float: left; width: 45%; padding-left:20%">
                                         <ul>
                                             <h3>Descripcion</h3>                                          
                                         </ul>
                                         
                                         <p th:text="${camping.description}"></p>
                                     </div>
-                                    <div style="float: right; width: 50%;">
+
+
+                        
+                                    <div style="float: right; width: 33%;">
                                         <ul>
                                                 <h3>Servicios</h3>
-                                            <li th:if="${#bools.isTrue(camping.animation)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.atm)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.beach)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.defibrillator)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.disco)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.doctor)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.dogs)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.football)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.gym)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.heatedPool)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.kindergarten)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.laundry)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.minigolf)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.paddel)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.pool)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.pub)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.restaurant)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.snackBar)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.supermarket)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.tennis)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.wellness)}"></li>
-                                            <li th:if="${#bools.isTrue(camping.wifi)}"></li>
-                                            
-                                            
-                                        </ul>
-                                        
-                                        <ul th:text="${camping.location}"></ul>
-                                    </div>  
+                                            <li th:if="${#bools.isTrue(camping.animation)}" >Animación</li>
+                                            <li th:if="${#bools.isTrue(camping.atm)}">Cajero automatico</li>
+                                            <li th:if="${#bools.isTrue(camping.beach)}">Playa</li>
+                                            <li th:if="${#bools.isTrue(camping.defibrillator)}">Desfibrilador</li>
+                                            <li th:if="${#bools.isTrue(camping.disco)}">Discoteca</li>
+                                            <li th:if="${#bools.isTrue(camping.doctor)}">Doctor</li>
+                                            <li th:if="${#bools.isTrue(camping.dogs)}">Perros</li>
+                                            <li th:if="${#bools.isTrue(camping.football)}">Fútbol</li>
+                                            <li th:if="${#bools.isTrue(camping.gym)}">Gimnasio</li>
+                                            <li th:if="${#bools.isTrue(camping.heatedPool)}">Piscina climatizada</li>
+                                            <li th:if="${#bools.isTrue(camping.kindergarten)}">Guarderia</li>
+                                            <li th:if="${#bools.isTrue(camping.laundry)}">Lavandería</li>
+                                            <li th:if="${#bools.isTrue(camping.minigolf)}">Mini golf</li>
+                                            <li th:if="${#bools.isTrue(camping.paddel)}">Paddel</li>
+                                            <li th:if="${#bools.isTrue(camping.pool)}">Piscina</li>
+                                            <li th:if="${#bools.isTrue(camping.pub)}">Pub</li>
+                                            <li th:if="${#bools.isTrue(camping.restaurant)}">Restaurante</li>
+                                            <li th:if="${#bools.isTrue(camping.snackBar)}">Snack Bar</li>
+                                            <li th:if="${#bools.isTrue(camping.supermarket)}">Supermercado</li>
+                                            <li th:if="${#bools.isTrue(camping.tennis)}">tennis</li>
+                                            <li th:if="${#bools.isTrue(camping.wellness)}">Wellness</li>
+                                            <li th:if="${#bools.isTrue(camping.wifi)}">WIFI</li>
+                                        </ul>  
+                                    </div>
+                                    
+                                      
+                                    
                                     <div>
                                     </div>
                                     <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
