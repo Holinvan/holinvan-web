@@ -1,30 +1,117 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/font-awesome.css}" rel="stylesheet" />
+<link th:href="@{/resources/css/spring-base-project.css}"
+	rel="stylesheet" />
 <head>
-	<title>Holinvan - Campings</title>
+<title th:text="#{title.page.items}"></title>
 </head>
 <body>
+	<header layout:fragment="header">
+		<div class="container">
+		</div>
+	</header>
 	<div class="container" layout:fragment="content">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Campings</h2>
-				<table class="table table-striped table-hover table-bordered">
-					<tr>
-						<th th:text="#{title.camping.name}"></th>
-						<th th:text="#{title.camping.country}"></th>
-						<th th:text="#{title.camping.city}"></th>
-						<th th:text="#{title.camping.rating}"></th>
-					</tr>
-					<tr th:each="camping: ${campingList}">
-						<td th:text="${camping.name}"></td>
-						<td th:text="${camping.country}"></td>
-						<td th:text="${camping.city}"></td>
-						<td th:text="${camping.rating}"></td>
-					</tr>
+
+
+
+				<table class="table table-condensed"
+					style="border-collapse: collapse;">
+
+					<thead>
+						<tr>
+							<th>&nbsp;</th>
+							<th th:text="#{title.camping.name}"></th>
+							<th th:text="#{title.camping.zone}"></th>
+							<th th:text="#{title.camping.rating}"></th>
+							
+						</tr>
+					</thead>
+
+
+					<th:block th:each="camping: ${campingList}">
+						<tbody>
+							<tr data-toggle="collapse"
+								th:attr="data-target='#accordion_'+${camping.id}"
+								class="accordion-toggle">
+								<td><button class="btn btn-default btn-xs">
+										<span class="fa fa-eye"></span>
+									</button></td>
+								<td th:text="${camping.name}"></td>
+								<td th:text="${camping.zone}"></td>
+								<td th:text="${camping.rating}"></td>
+								
+							</tr>
+							<tr>
+								<td colspan="6" class="hiddenRow">
+							       <div th:id="'accordion_'+${camping.id}" class="accordian-body collapse">
+							       
+							       <div class="panel-body">
+                                <div class="row">
+
+
+                                    <div style="float: left; width: 50%;">
+                                        <ul>
+                                            <h3>Descripcion</h3>                                          
+                                        </ul>
+                                        
+                                        <p th:text="${camping.description}"></p>
+                                    </div>
+                                    <div style="float: right; width: 50%;">
+                                        <ul>
+                                                <h3>Servicios</h3>
+                                            <li th:if="${#bools.isTrue(camping.animation)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.atm)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.beach)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.defibrillator)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.disco)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.doctor)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.dogs)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.football)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.gym)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.heatedPool)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.kindergarten)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.laundry)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.minigolf)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.paddel)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.pool)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.pub)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.restaurant)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.snackBar)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.supermarket)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.tennis)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.wellness)}"></li>
+                                            <li th:if="${#bools.isTrue(camping.wifi)}"></li>
+                                            
+                                            
+                                        </ul>
+                                        
+                                        <ul th:text="${camping.location}"></ul>
+                                    </div>  
+                                    <div>
+                                    </div>
+                                    <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
+                                    </div>
+                                </div>
+                            </div>
+							       
+							       </div>
+							    </td>
+							</tr>
+						</tbody>
+					</th:block>
+
 				</table>
 				<div class="text-right">
 					<a th:href="@{/addCamping}" class="btn btn-lg btn-primary">ADD CAMPING</a>
-				</div>	
+				</div>
 			</div>
 		</div>
 	</div>

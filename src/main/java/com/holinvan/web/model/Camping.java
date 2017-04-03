@@ -2,20 +2,18 @@ package com.holinvan.web.model;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+
+
 
 @Entity
 @Table(name="campings")
@@ -25,12 +23,10 @@ public class Camping implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	@NotEmpty
 	@Size(max=30)
 	private String address;
-	@Size(max=30)
 	private String addressf;
-	@Size(max=10)
+
 	private String cif;
 	@Size(max=25)
 	private String city;
@@ -38,33 +34,25 @@ public class Camping implements Serializable {
 	private String country;
 	@Size(max=10)
 	private String cp;
-	@Lob
-	@NotEmpty
 	private String description;
-	@NotEmpty
 	@Size(max=20)
 	private String schedule;
-	@NotEmpty
-	@Email
-	@Size(max=30)
+
 	private String emailf;
-	@NotNull
+	
 	private Integer idTelephone;
 	@NotEmpty
 	@Size(max=30)
 	private String name;
-	@NotEmpty
-	@Size(max=30)
+
 	private String namef;
 	private Integer rates;
 	private float rating;
 	@NotEmpty
 	@Size(max=15)
 	private String telephone;
-	@NotEmpty
-	@Size(max=250)
+
 	private String location;
-	@NotEmpty
 	@Size(max=30)
 	private String zone;
 	
