@@ -8,8 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -36,20 +38,34 @@ public class Camping implements Serializable {
 	private String country;
 	@Size(max=10)
 	private String cp;
-	@Column(columnDefinition = "TEXT")
+	@Lob
+	@NotEmpty
 	private String description;
+	@NotEmpty
 	@Size(max=20)
 	private String schedule;
+	@NotEmpty
 	@Email
 	@Size(max=30)
 	private String emailf;
+	@NotNull
 	private Integer idTelephone;
+	@NotEmpty
+	@Size(max=30)
 	private String name;
+	@NotEmpty
+	@Size(max=30)
 	private String namef;
 	private Integer rates;
 	private float rating;
+	@NotEmpty
+	@Size(max=15)
 	private String telephone;
+	@NotEmpty
+	@Size(max=250)
 	private String location;
+	@NotEmpty
+	@Size(max=30)
 	private String zone;
 	
 	private boolean animation;
