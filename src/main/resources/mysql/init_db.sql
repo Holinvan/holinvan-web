@@ -100,13 +100,8 @@ CREATE TABLE IF NOT EXISTS campings (
 	emailf varchar (30) NOT NULL DEFAULT '',
 	description text,
 	location varchar (250) NOT NULL DEFAULT '',
-	zone varchar (30)
-) ENGINE=InnoDB;
-
-CREATE TABLE IF NOT EXISTS campings_services (
-	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  	camping_id int(11) NOT NULL,
-	animation boolean,
+	zone varchar (30),
+    animation boolean,
     pool boolean,
     heated_pool boolean,
     gym boolean,
@@ -127,9 +122,7 @@ CREATE TABLE IF NOT EXISTS campings_services (
     restaurant boolean,
     tennis boolean,
     paddel boolean,
-    football boolean,
-  	KEY fk_campings_service (camping_id),
-  	CONSTRAINT fk_campings_service FOREIGN KEY (camping_id) REFERENCES campings (id)
+    football boolean
 ) ENGINE=InnoDB;
 
 /* -------------  CARAVANA ------------- */
@@ -204,7 +197,14 @@ VALUES (1,'silentxavi@yahoo.es', 'Xavier', 'shurmano', '1', '1999-02-09', '34', 
 (3,'victor_tgn_69@hotmail.com', 'Victor', 'Condemor Praderar', '1', '1992-09-25', '33', '654123989', 'c/de los Sueños 14 7oC', 'Vietnam', '08081'),
 (4,'sevillana_69@yahoo.es', 'Beatrix', 'Lestrange', '0', '1990-08-16', '45', '666777885', 'a/De la Grasia n89 6o2a', 'Andalucia', '98798');
 INSERT INTO campings (name, idTelephone, telephone, address, country, CP, city)
+<<<<<<< HEAD
 VALUES (1, 'CAMPING PAQUITO', '34', '23456789', 'a/Paquito\'s road', 'Irak', '67832', 'Bagdad'),
 ('CAMPING PEPITO', '34', '2342345', 'a/Pepito\'s road', 'Vietnam', '23332', 'Hanoi'),
 ('CAMPING CARLITOS', '34', '23454576', 'a/Carlito\'s road', 'Russia', '98765', 'Vladivostok'),
 ('CAMPING MARIA', '34', '234986', 'a/Maria\'s road', 'Madagascar', '67999', 'Antananarivo');
+=======
+VALUES ('CAMPING PAQUITO', '34', '23456789', 'a/Paquito\'s road', 'Irak', '67832', 'Bagdad'),
+('CAMPING PEPITO', '34', '2342345', 'a/Pepito\'s road', 'Vietnam', '23332', 'Hanoi'),
+('CAMPING CARLITOS', '34', '23454576', 'a/Carlito\'s road', 'Russia', '98765', 'Vladivostok'),
+('CAMPING MARIA', '34', '234986', 'a/Maria\'s road', 'Madagascar', '67999', 'Antananarivo');
+>>>>>>> a67bd63442b36bc6ae146cef4c55d2ac961f991d
