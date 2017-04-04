@@ -4,15 +4,27 @@
 	layout:decorate="~{layouts/simple}"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<link th:href="@{/resources/css/form-elements.css}" rel="stylesheet" />
-<link th:href="@{/resources/css/media-queries.css}" rel="stylesheet" />
-<link th:href="@{/resources/css/style.css}" rel="stylesheet" />
 </head>
 <meta charset="UTF-8">
 <title>Correcto</title>
 </head>
 <body>
-	<div class="container" layout:fragment="content">
+	<div class="container-fluid" layout:fragment="content">
+		<div class="header-publish-caravan">
+			<a th:href="@{~/holinvan-web}"> <img class="logo-desktop"
+				th:src="@{/resources/img/logo_min_m.png}"> <img
+				class="logo-mobile" th:src="@{/resources/img/isotipo_min.png}">
+			</a>
+			<h4 class="title-progress">PUBLISH YOUR CARAVAN</h4>
+		</div>
+		<div class="row">
+			<div class="progress">
+				<div class="progress-bar" role="progressbar" aria-valuenow="7,14"
+					aria-valuemin="100" aria-valuemax="100" style="width: 7,14%;">
+					<span class="sr-only"></span>
+				</div>
+			</div>
+			<div class="col-md-8 col-sm-6 col-sm-offset-3">
 		<h1>TU CARAVANA SE HA AÑADIDO CORRECTAMENTE</h1>
 		
 		<form th:action="@{lista}" method="get">
@@ -21,6 +33,8 @@
 
 
 
+	</div>
+	</div>
 	</div>
 
 
