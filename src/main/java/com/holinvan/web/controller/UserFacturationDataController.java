@@ -54,10 +54,9 @@ public class UserFacturationDataController {
 	public String editFacturationUserInfo(@Valid @ModelAttribute("facturation_data") UserFacturationData userFacturationData, BindingResult result, 
 			@AuthenticationPrincipal User activeUser, Locale locale, Model model){
 		
-		//TODO: Change literals for reponse
-		Response response = new Response(ResponseStatus.OK, "ForEmail.subject");
+		Response response = new Response(ResponseStatus.OK, "formBilling.okMsg");
 		if (result.hasErrors()){
-			response.setMessageCode("title.page.norms");
+			response.setMessageCode("formBilling.failMsg");
 			response.setStatus(ResponseStatus.ERROR);
 		}
 		else {

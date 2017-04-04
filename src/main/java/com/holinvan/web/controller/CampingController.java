@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.holinvan.web.model.Camping;
 import com.holinvan.web.service.CampingService;
+import com.holinvan.web.type.Response;
+import com.holinvan.web.type.ResponseStatus;
 
 @Controller
 public class CampingController {
@@ -33,14 +35,19 @@ public class CampingController {
 	
 	@PostMapping("/addCamping")
 	public String addCamping(@Valid @ModelAttribute("camping") Camping camping, BindingResult result, Model model) {
+		
+		Response response = new Response(ResponseStatus.OK, "formAddCamping.okMsg");
 		if (result.hasErrors()){
+			response.setMessageCode("formAddCamping.failMsg");
+			response.setStatus(ResponseStatus.ERROR);
 			System.out.println(result.getFieldErrors());
-			return "camping/addCamping";
 		}
 		else {
 			campingService.addNewCamping(camping);
 		    return "hello";
 		}
+		model.addAttribute("addCampingResponse", response);
+		return "camping/addCamping";
 				
 	  }
 
