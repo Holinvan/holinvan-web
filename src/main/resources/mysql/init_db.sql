@@ -100,13 +100,8 @@ CREATE TABLE IF NOT EXISTS campings (
 	emailf varchar (30) NOT NULL DEFAULT '',
 	description text,
 	location varchar (250) NOT NULL DEFAULT '',
-	zone varchar (30)
-) ENGINE=InnoDB;
-
-CREATE TABLE IF NOT EXISTS campings_services (
-	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  	camping_id int(11) NOT NULL,
-	animation boolean,
+	zone varchar (30),
+    animation boolean,
     pool boolean,
     heated_pool boolean,
     gym boolean,
@@ -127,9 +122,7 @@ CREATE TABLE IF NOT EXISTS campings_services (
     restaurant boolean,
     tennis boolean,
     paddel boolean,
-    football boolean,
-  	KEY fk_campings_service (camping_id),
-  	CONSTRAINT fk_campings_service FOREIGN KEY (camping_id) REFERENCES campings (id)
+    football boolean
 ) ENGINE=InnoDB;
 
 /* -------------  CARAVANA ------------- */
