@@ -29,7 +29,7 @@
 				<form th:action="@{/caravana/add}" th:object="${caravana}"
 					method="post" id="caravanForm">
 					<fieldset>
-						<h2>Basic information</h2>
+						<h2 th:text="#{5.1}"></h2>
 						<div class="form-group"
 							th:classappend="${#fields.hasErrors('brand')} ? has-error">
 							<label for="brand" th:text="#{brand}"> <abbr
@@ -231,12 +231,16 @@
 										th:text="#{closet}"></span>
 									</label>
 								</div>
-								<div class="form-group">
-									<label th:text="#{others}">  
+								 
+									
+									
+								<div class="checkbox">
+									<label> 
+										<span th:text="#{others}"></span>
+										<input type="text" th:field="*{characteristic.others}">
 									</label>
-									<input type="text"
-										th:field="*{characteristic.others}">
 								</div>
+								
 
 
 
@@ -361,12 +365,16 @@
 										<span th:text="#{party}"></span>
 									</label>
 								</div>
-								<div class="checkbox">
-							<label th:text="#{other.rules}"></label>
-							 <input type="text" th:field="*{rule.other}">
 								
-							
-						</div>
+						
+						<div class="checkbox">
+									<label> 
+										<span th:text="#{other.rules}"></span>
+										<input type="text" th:field="*{rule.other}">
+									</label>
+								</div>
+						
+						
 							</div>
 						</div>
 						
@@ -439,11 +447,11 @@
 					<fieldset>
 						<h2 th:text="#{insurance.title1}"></h2>
 						<div class="col-md-6 col-md-offset-3">
-							
+							<h4 th:text="#{insurance.title1.2}" class="text-left"></h4><br>
 							<div class="checkbox">
 								<label> 
 									<input id='r2' type="radio" th:field="*{insurance}"   th:checked="${1==1}" value="1"> 
-									<span th:text="#{yes}"></span>
+									<span th:text="#{yes}" checked></span>
 								</label>
 							</div>
 							<div class="checkbox">
@@ -455,11 +463,15 @@
 
 						</div><br>
 						
-						<div id='d1' style='display: none'>
+						<div  id='d1' style='display: none'>
 							<div class="row">
-							<h4 th:text="#{insurance.title2}"></h4><br>
-								<div class="col-md-6 col-md-offset-3">
-								<h2 th:text="#{insurance.title1}"></h2>
+
+							<div class="col-md-6 col-md-offset-3">
+								<h4 th:text="#{insurance.title2}" class="text-left"></h4><br>	
+
+							
+								
+
 									<div class="checkbox">
 										<label> <input type="radio"
 											th:field="*{insuranceOffer}" value="1"  th:checked="${1 == 1}"> <span
@@ -474,26 +486,12 @@
 									</div>
 									
 
-								</div>
+								
 							</div>
 						</div>
-
-						<div class="col-md-6 col-md-offset-3">
-						<h2 th:text="#{insurance.title2}"></h2>
-							<div class="checkbox">
-								<label> <input id='r1' type="radio"
-									th:field="*{insurance}" value="0"> <span
-									th:text="#{no}"></span>
-								</label>
-							</div>
-							<div class="checkbox">
-								<label> <input id='r2' type="radio"
-									th:field="*{insurance}" value="1"> <span
-									th:text="#{yes}"></span>
-								</label>
-							</div>
-
 						</div>
+
+						
 
 						<div class="form-group buttons buttons-line">
 							<button type="button"
@@ -523,8 +521,8 @@
 
 							<div class="form-group">
 
-								<label for="infTransName" th:text="#{infTransName}"> </label> <input
-									type="text" th:field="*{infTransName}" />
+								<label for="infTransName" th:text="#{infTransName}"> </label> 
+								<input type="text" th:field="*{infTransName}" class="form-control"/>
 								<p th:if="${#fields.hasErrors('infTransName')}"
 									th:errors="*{infTransName}" class="error">infTransName
 									error</p>
@@ -532,7 +530,7 @@
 
 							<div class="form-group">
 								<label for="infTransAdress" th:text="#{infTransAdress}">
-								</label> <input type="text" th:field="*{infTransAdress}" />
+								</label> <input type="text" th:field="*{infTransAdress}" class="form-control"/>
 								<p th:if="${#fields.hasErrors('infTransAdress')}"
 									th:errors="*{infTransAdress}" class="error">infTransAdress
 									error</p>
@@ -541,7 +539,7 @@
 
 							<div class="form-group">
 								<label for="infTransTelephone" th:text="#{infTransTelephone}">
-								</label> <input type="text" th:field="*{infTransTelephone}" />
+								</label> <input type="text" th:field="*{infTransTelephone}" class="form-control"/>
 								<p th:if="${#fields.hasErrors('infTransTelephone')}"
 									th:errors="*{infTransTelephone}" class="error">infTransTelephone
 									error</p>
@@ -549,7 +547,7 @@
 
 							<div class="form-group">
 								<label for="infTransEmail" th:text="#{infTransEmail}"> </label>
-								<input type="text" th:field="*{infTransEmail}" />
+								<input type="text" th:field="*{infTransEmail}" class="form-control"/>
 								<p th:if="${#fields.hasErrors('infTransEmail')}"
 									th:errors="*{infTransEmail}" class="error">infTransEmail
 									error</p>
@@ -557,7 +555,7 @@
 
 							<div class="form-group">
 								<label for="infTransContact" th:text="#{infTransContact}">
-								</label> <input type="text" th:field="*{infTransContact}" />
+								</label> <input type="text" th:field="*{infTransContact}" class="form-control"/>
 								<p th:if="${#fields.hasErrors('infTransContact')}"
 									th:errors="*{infTransContact}" class="error">infTransContact
 									error</p>
