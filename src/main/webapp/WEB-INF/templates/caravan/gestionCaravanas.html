@@ -161,8 +161,7 @@
 										th:text="#{awning}"></span>
 									</label>
 								</div>
-							</div>
-							<div class="col-md-6">
+							
 								<div class="checkbox">
 									<label> <input type="checkbox"
 										th:field="*{characteristic.oven}"> <span
@@ -225,20 +224,18 @@
 										th:text="#{fridge}"></span>
 									</label>
 								</div>
-							</div>
-
-							<div class="col-md-6">
+							
 								<div class="checkbox">
 									<label> <input type="checkbox"
 										th:field="*{characteristic.closer}"> <span
 										th:text="#{closet}"></span>
 									</label>
 								</div>
-								<div class="checkbox">
-									<label> <input type="text"
-										th:field="*{characteristic.others}"> <span
-										th:text="#{others}"></span>
+								<div class="form-group">
+									<label th:text="#{others}">  
 									</label>
+									<input type="text"
+										th:field="*{characteristic.others}">
 								</div>
 
 
@@ -295,9 +292,7 @@
 										th:text="#{bed_sheet}"></span>
 									</label>
 								</div>
-							</div>
-
-							<div class="col-md-6 col-md-offset-3">
+							
 								<div class="checkbox">
 									<label> <input type="checkbox"
 										th:field="*{service.toaster}"> <span
@@ -322,8 +317,9 @@
 									</label>
 								</div>
 								<div class="checkbox">
-									<label> <input type="text" th:field="*{service.other}">
+									<label> 
 										<span th:text="#{other.extras}"></span>
+										<input type="text" th:field="*{service.other}">
 									</label>
 								</div>
 
@@ -365,13 +361,15 @@
 										<span th:text="#{party}"></span>
 									</label>
 								</div>
+								<div class="checkbox">
+							<label th:text="#{other.rules}"></label>
+							 <input type="text" th:field="*{rule.other}">
+								
+							
+						</div>
 							</div>
 						</div>
-						<div class="checkbox">
-							<label> <input type="text" th:field="*{rule.other}">
-								<span th:text="#{other.rules}"></span>
-							</label>
-						</div>
+						
 						<div class="form-group buttons buttons-line">
 							<button type="button"
 								class="btn btn-default btn-lg btn-block btn-previous"
@@ -439,26 +437,47 @@
 					</fieldset>
 					<!-- 5.8 -->
 					<fieldset>
+						<h2 th:text="#{insurance.title1}"></h2>
+						<div class="col-md-6 col-md-offset-3">
+							
+							<div class="checkbox">
+								<label> 
+									<input id='r2' type="radio" th:field="*{insurance}"   th:checked="${1==1}" value="1"> 
+									<span th:text="#{yes}"></span>
+								</label>
+							</div>
+							<div class="checkbox">
+								<label> <input id='r1' type="radio"
+									th:field="*{insurance}" value="0"> <span
+									th:text="#{no}"></span>
+								</label>
+							</div>
+
+						</div><br>
+						
 						<div id='d1' style='display: none'>
 							<div class="row">
+							<h4 th:text="#{insurance.title2}"></h4><br>
 								<div class="col-md-6 col-md-offset-3">
 								<h2 th:text="#{insurance.title1}"></h2>
+									<div class="checkbox">
+										<label> <input type="radio"
+											th:field="*{insuranceOffer}" value="1"  th:checked="${1 == 1}"> <span
+											th:text="#{yes}" ></span>
+										</label>
+									</div>
 									<div class="checkbox">
 										<label> <input type="radio"
 											th:field="*{insuranceOffer}" value="0"> <span
 											th:text="#{no}"></span>
 										</label>
 									</div>
-									<div class="checkbox">
-										<label> <input type="radio"
-											th:field="*{insuranceOffer}" value="1"> <span
-											th:text="#{yes}"></span>
-										</label>
-									</div>
+									
 
 								</div>
 							</div>
 						</div>
+
 						<div class="col-md-6 col-md-offset-3">
 						<h2 th:text="#{insurance.title2}"></h2>
 							<div class="checkbox">
@@ -475,6 +494,7 @@
 							</div>
 
 						</div>
+
 						<div class="form-group buttons buttons-line">
 							<button type="button"
 								class="btn btn-default btn-lg btn-block btn-previous"
@@ -501,7 +521,7 @@
 
 						<div id="row_dim" class="form-group" th:classappend=="${#fields.hasErrors('infTransName')} ? has-error">
 
-							<div>
+							<div class="form-group">
 
 								<label for="infTransName" th:text="#{infTransName}"> </label> <input
 									type="text" th:field="*{infTransName}" />
@@ -510,7 +530,7 @@
 									error</p>
 							</div>
 
-							<div>
+							<div class="form-group">
 								<label for="infTransAdress" th:text="#{infTransAdress}">
 								</label> <input type="text" th:field="*{infTransAdress}" />
 								<p th:if="${#fields.hasErrors('infTransAdress')}"
@@ -519,7 +539,7 @@
 
 							</div>
 
-							<div>
+							<div class="form-group">
 								<label for="infTransTelephone" th:text="#{infTransTelephone}">
 								</label> <input type="text" th:field="*{infTransTelephone}" />
 								<p th:if="${#fields.hasErrors('infTransTelephone')}"
@@ -527,7 +547,7 @@
 									error</p>
 							</div>
 
-							<div>
+							<div class="form-group">
 								<label for="infTransEmail" th:text="#{infTransEmail}"> </label>
 								<input type="text" th:field="*{infTransEmail}" />
 								<p th:if="${#fields.hasErrors('infTransEmail')}"
@@ -535,7 +555,7 @@
 									error</p>
 							</div>
 
-							<div>
+							<div class="form-group">
 								<label for="infTransContact" th:text="#{infTransContact}">
 								</label> <input type="text" th:field="*{infTransContact}" />
 								<p th:if="${#fields.hasErrors('infTransContact')}"
@@ -564,9 +584,9 @@
 
 						<div class="form-group">
 							<select th:field="*{reservAdvanceDate}" class="form-control">
-								<option value="Dias">Día/s</option>
-								<option value="Semanas">Semana/s</option>
-								<option value="Meses">Mes/es</option>
+								<option value="Dias" th:text="#{day}"></option>
+								<option value="Semanas" th:text="#{week}"></option>
+								<option value="Meses" th:text="#{month}"></option>
 							</select>
 
 							<h4 th:text="#{tip}"></h4>
