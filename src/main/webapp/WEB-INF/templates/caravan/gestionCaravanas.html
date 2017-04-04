@@ -71,7 +71,6 @@
 							<label for="adults" th:text="#{adults}"> <abbr
 								class="required" title="required"> * </abbr></label> <select
 								th:field="*{adults}" class="form-control">
-								<option value="0">0</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -466,8 +465,13 @@
 						
 						<div  id='d1' style='display: none'>
 							<div class="row">
+
 							<div class="col-md-6 col-md-offset-3">
 								<h4 th:text="#{insurance.title2}" class="text-left"></h4><br>	
+
+							
+								
+
 									<div class="checkbox">
 										<label> <input type="radio"
 											th:field="*{insuranceOffer}" value="1"  th:checked="${1 == 1}"> <span
@@ -482,9 +486,13 @@
 									</div>
 									
 
-								</div>
+								
 							</div>
 						</div>
+						</div>
+
+						
+
 						<div class="form-group buttons buttons-line">
 							<button type="button"
 								class="btn btn-default btn-lg btn-block btn-previous"
@@ -612,17 +620,23 @@
 					<fieldset>
 						<h4 th:text="#{select.availability}"></h4>
 
-						<div class="form-group">
+						<div class="form-group" th:classappend=="${#fields.hasErrors('stayLengthMin')} ? has-error">
 
 							<label for="stayLengthMin" th:text="#{stayLengthMin}"><abbr
 								class="required" title="required"> * </abbr></label> <input type="text"
 								th:field="*{stayLengthMin}" class="form-control" />
+								<p th:if="${#fields.hasErrors('stayLengthMin')}"
+									th:errors="*{stayLengthMin}" class="error">stayLengthMin
+									error</p>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group" th:classappend=="${#fields.hasErrors('stayLengthMax')} ? has-error">
 							<label for="stayLengthMax" th:text="#{stayLengthMax}"><abbr
 								class="required" title="required"> * </abbr></label> <input type="text"
 								th:field="*{stayLengthMax}" class="form-control" />
+								<p th:if="${#fields.hasErrors('stayLengthMax')}"
+									th:errors="*{stayLengthMax}" class="error">stayLengthMax
+									error</p>
 						</div>
 
 						<h4 th:text="#{tip}"></h4>

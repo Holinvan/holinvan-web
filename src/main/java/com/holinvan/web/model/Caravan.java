@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -69,6 +70,7 @@ public class Caravan implements Serializable {
 	@Column(name = "availability_time")
 	private Integer availabilityTime;
 	@Column(name = "stay_length_min")
+	@NotEmpty
 	private String stayLengthMin;
 	public String getStayLengthMin() {
 		return stayLengthMin;
@@ -85,7 +87,7 @@ public class Caravan implements Serializable {
 	public void setStayLengthMax(String stayLengthMax) {
 		this.stayLengthMax = stayLengthMax;
 	}
-
+	@NotEmpty
 	@Column(name = "stay_length_max")
 	private String stayLengthMax;
 
