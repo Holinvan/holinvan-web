@@ -114,6 +114,13 @@ public class CaravanaValidator implements Validator {
 		if (Caravan.getCharacteristic().getOthers().length() > 100){
 			errors.rejectValue("characteristic.other", "characteristic.other.MaxChars");
 		}
+		
+		if(Caravan.getStayLengthMin().length() > 5){
+			errors.rejectValue("stayLengthMin","stayLengthMinError");
+		}
+		if(Caravan.getStayLengthMax().length() > 5){
+			errors.rejectValue("stayLengthMax","stayLengthMaxError");
+		}
 	}
 
 }
