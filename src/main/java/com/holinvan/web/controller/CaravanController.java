@@ -75,6 +75,7 @@ public class CaravanController {
 			return SUCCESS;
 		}
 		System.out.println("ERRORS: " + result.getFieldErrors());
+		model.addAttribute("campings", campingService.getAllCampings());
 		return CARAVAN;
 	}
 	
