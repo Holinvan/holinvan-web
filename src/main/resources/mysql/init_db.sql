@@ -261,3 +261,9 @@ VALUES ('CAMPING PAQUITO', '34', '23456789', 'a/Paquito\'s road', 'Irak', '67832
 ('CAMPING PEPITO', '34', '2342345', 'a/Pepito\'s road', 'Vietnam', '23332', 'Hanoi'),
 ('CAMPING CARLITOS', '34', '23454576', 'a/Carlito\'s road', 'Russia', '98765', 'Vladivostok'),
 ('CAMPING MARIA', '34', '234986', 'a/Maria\'s road', 'Madagascar', '67999', 'Antananarivo');
+INSERT INTO caravan (brand , model ,construction_year , babys , kids ,adults ,name , description ,insurance ,insurance_offer , id_camping ,stay_length_min ,stay_length_max,who_trans,reserv_advance_time,reserv_advance_date)
+VALUES ('Mercedes' , 'clase A' ,'2000' , '2' , '4' ,'3' , 'Caravanator' , 'Gran caravana de color blanco, amplia y luminosa.' ,'1' ,'1' , 2 ,'3' ,'12','Yo mismo','2','Semanas');
+INSERT INTO characteristic (beds,kitchen,living,bath,awning,terrace_table,climatize,tv,fridge,closer,oven,terrace_chairs,shower,crockery,skillets_casseroles,cutlery,others)
+VALUES ('1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','other');
+INSERT INTO rule (kids,pets,smoke,party,other) VALUES ('1','1','1','1','other');
+INSERT INTO service (umbrella,cycle,hammock,bbq,towels,bed_sheets,toaster,microwave,mixer,pilows,other)Values ('1','1','1','1','1','1','1','1','1','1','other');
