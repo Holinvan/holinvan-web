@@ -23,18 +23,18 @@ public class ItemController {
 	@GetMapping
 	public String getItems(Model model) {
 		model.addAttribute("items", itemService.getAllItems());
-		return "items";
+		return "item/items";
 	}
 	
 	@GetMapping("/add")
 	public String addItem(Model model) {
 		model.addAttribute("item", new Item());
-		return "addItem";
+		return "item/addItem";
 	}
 	
 	@PostMapping("/add")
 	public String saveItem(@Valid Item item, BindingResult result, Model model) {
-		return "addItem";
+		return "item/addItem";
 	}
 
 }
