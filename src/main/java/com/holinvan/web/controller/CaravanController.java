@@ -37,7 +37,6 @@ public class CaravanController {
 	@Autowired
 	Caravanaservice caravanaservice;
 
-
 	@Autowired
 	CaravanaValidator caravanaValidator;
 	
@@ -48,9 +47,6 @@ public class CaravanController {
 	public String addCaravana(Model model) {
 
 		model.addAttribute("caravana", new Caravan());
-		
-		
-
 		
 		model.addAttribute("campings", campingService.getAllCampings());
 
@@ -65,12 +61,14 @@ public class CaravanController {
 
 		if (!result.hasErrors()){	
 
-			caravanaservice.addCaravana(caravana);			
+			caravanaservice.addCaravana(caravana);
 
 
 			model.addAttribute("caravanList", caravanaservice.findAllCaravan());
 
 			model.addAttribute("caravana", caravana);
+			
+			model.addAttribute("campings", campingService.getAllCampings());
 
 			return SUCCESS;
 		}
@@ -95,12 +93,14 @@ public class CaravanController {
     }
     
     @PostMapping("/calendar/{id}")
-    public String calendar(@PathVariable("id") Integer id, @ModelAttribute("availability") Availability availability, @ModelAttribute("availabilities") ArrayList<Availability> availabilities){
+    public String calendar(@PathVariable("id") Integer id, @ModelAttribute("availability") Availability availability, @ModelAttribute("availabilities") ArrayList<Availability> availabilities, Model model){
         
         availability.setCaravan(caravanaservice.findCaravanById(id));
         availability.setId(0);
         availabilities.add(availability);
         caravanaservice.saveAllAvailabilities(availabilities);
+        caravanaservice.findCaravanById(id).setAvailabilities(availabilities);
+        model.addAttribute("availabilities", caravanaservice.findCaravanById(id).getAvailabilities());
         
         return CALENDAR;
     }
@@ -115,12 +115,14 @@ public class CaravanController {
     }
     
     @PostMapping("/price/{id}")
-    public String price(@PathVariable("id") Integer id, @ModelAttribute("price") Price price, @ModelAttribute("prices") ArrayList<Price> prices){
+    public String price(@PathVariable("id") Integer id, @ModelAttribute("price") Price price, @ModelAttribute("prices") ArrayList<Price> prices, Model model){
         
         price.setCaravan(caravanaservice.findCaravanById(id));
         price.setId(0);
         prices.add(price);
         caravanaservice.saveAllPrices(prices);
+        caravanaservice.findCaravanById(id).setPrices(prices);
+        model.addAttribute("availabilities", caravanaservice.findCaravanById(id).getPrices());
         
         return PRICE;
     }
