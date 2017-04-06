@@ -49,8 +49,11 @@ public class SignUpService implements ConnectionSignUp{
         	userData = setUserProfileFacebook(connection);
         	LOG.debug("Logged user from FACEBOOK: " + userData.getName());
         }
-        User user = saveSocialUser(userData);
-        return user.getUserData().getName();
+        User userFound = userRepository.findByUsername(userData.getEmail());
+        if (userFound == null){
+        	saveSocialUser(userData);
+        }
+        return userData.getEmail();
     }
     
     public Authority getUserAuthority(){
@@ -64,11 +67,14 @@ public class SignUpService implements ConnectionSignUp{
     
     /*BUG http://stackoverflow.com/questions/39890885/error-message-is-12-bio-field-is-deprecated-for-versions-v2-8-and-higher */
     private UserData setUserProfileFacebook(Connection<?> connection) {
-    	return new UserData(connection.getDisplayName(), "#", "noinfo@mail.com");
+    	Facebook facebook = (Facebook) connection.getApi();
+    	String [] fields = { "id", "email",  "first_name", "last_name" };
+    	org.springframework.social.facebook.api.User userProfile = facebook.fetchObject("me", org.springframework.social.facebook.api.User.class, fields);
+    	return new UserData(userProfile.getFirstName(), userProfile.getLastName(), userProfile.getEmail());
     }
     
     private User saveSocialUser(UserData userData) {
-    	User user = new User(userData.getName(), randomAlphabetic(8), Arrays.asList(new SimpleGrantedAuthority(Role.USER.getValue())), userData, null);
+    	User user = new User(userData.getEmail(), randomAlphabetic(8), Arrays.asList(new SimpleGrantedAuthority(Role.USER.getValue())), userData, null);
         userData.setUser(user);
         UserAuthority userAuthority = new UserAuthority(getUserAuthority(), user);
         user.setUserAuthorities(new ArrayList<UserAuthority>());

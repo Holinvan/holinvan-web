@@ -58,9 +58,14 @@ public class SocialConfig implements SocialConfigurer {
 		return repository;
 	}
 	
+	@Bean 
+    public SignInService signInService() { 
+        return new SignInService(); 
+    } 
+	
 	@Bean
-	public ProviderSignInController providerSignInController(ConnectionFactoryLocator connectionFactoryLocator, UsersConnectionRepository usersConnectionRepository) {
-		ProviderSignInController controller = new ProviderSignInController(connectionFactoryLocator, usersConnectionRepository, new SignInService());
+	public ProviderSignInController providerSignInController(ConnectionFactoryLocator connectionFactoryLocator, UsersConnectionRepository usersConnectionRepository, SignInService signInService) {
+		ProviderSignInController controller = new ProviderSignInController(connectionFactoryLocator, usersConnectionRepository, signInService);
 		controller.setSignUpUrl("/register?signup=true");
 		return controller;
 	}
