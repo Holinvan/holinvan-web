@@ -20,12 +20,12 @@
     			<hr>
   			</div>
 	   		<form th:action="@{/signin/facebook}" method="post" class="social">
-	   			<input type="hidden" name="scope" value="public_profile" />
-	   			<button class="btn btn-default btn-block" type="submit" th:text="#{formLogin.btnFacebook}"><i class="fa fa-facebook" aria-hidden="true"></i></button>
+	   			<input type="hidden" name="scope" value="public_profile,email" />
+	   			<button class="btn btn-default btn-block" type="submit"><i class="fa fa-facebook" aria-hidden="true"></i><span th:text="#{formLogin.btnFacebook}"></span></button>
 			</form>
 			<form th:action="@{/signin/google}" method="post" class="social">
 	    		<input type="hidden" name="scope" value="email https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.me" />
-	    		<button type="submit" class="btn btn-default btn-block"><i class="fa fa-google" aria-hidden="true" th:text="#{formLogin.btnGoogle}"></i></button>
+	    		<button class="btn btn-default btn-block" type="submit"><i class="fa fa-google" aria-hidden="true"></i><span th:text="#{formLogin.btnGoogle}"></span></button>
 			</form>
 			<hr>
 			<div class="signup-footer">

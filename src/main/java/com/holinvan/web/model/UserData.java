@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -29,35 +28,27 @@ public class UserData implements Serializable {
 	private Integer id;
 	@Email
     private String email;
-    @NotEmpty
     @Size(max=40)
     private String address;
-    @NotEmpty
 	@Size(max=15)
+	@NotEmpty
 	private String name;
-    @NotEmpty
     @Size(max=25)
+    @NotEmpty
 	private String surname;
 	private User user;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date birthDate;
-    @NotEmpty
     @Size(max=15)
     private String city;
-    @NotEmpty
     private String country;
-    @NotEmpty
     @Size(max=10)
     private String cp;
-    @NotNull
     private String genre;
     @Max(value=999)
-    @NotNull
     private int idTelephone;
-    @NotEmpty
     @Size(max=15)
     private String telephone;
-    @NotEmpty
     @Size(max=15)
     private String nif;
     private int rates;
