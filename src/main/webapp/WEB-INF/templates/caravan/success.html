@@ -3,11 +3,27 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layouts/simple}">
 <head>
+<<<<<<< HEAD
+</head>
+<meta charset="UTF-8">
+<title th:text= "#{correct}"></title>
+</head>
+<body>
+	<div class="container-fluid" layout:fragment="content">
+		<div class="header-publish-caravan">
+			<a th:href="@{~/holinvan-web}"> <img class="logo-desktop"
+				th:src="@{/resources/img/logo_min_m.png}"> <img
+				class="logo-mobile" th:src="@{/resources/img/isotipo_min.png}">
+			</a>
+			<h4 th:text="#{publishCaravan}"></h4>
+		</div>
+=======
 <title th:text="#{formRegistrationBoth.complete}"></title>
 </head>
 <body>
 	<div class="container registration text-center"
 		layout:fragment="content">
+>>>>>>> 7ea8292b14af4600a2b6914b3f70b6d31867b7f2
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
 				<div class="brand">
@@ -25,7 +41,21 @@
 						caravanas</button>
 				</form>
 			</div>
+<<<<<<< HEAD
+			<div class="col-md-8 col-sm-6 col-sm-offset-3">
+		<h1 th:text= "#{caravanCorrect}"></h1>
+		
+		<form th:action="@{lista}" method="get">
+			<button type="submit" class="btn btn-primary">Lista de caravanas</button>
+		</form>
+
+
+
+	</div>
+	</div>
+=======
 		</div>
+>>>>>>> 7ea8292b14af4600a2b6914b3f70b6d31867b7f2
 	</div>
 </body>
 </html>
