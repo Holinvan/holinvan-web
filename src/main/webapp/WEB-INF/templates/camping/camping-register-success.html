@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/simple}">
+<head>
+	<title th:text="#{formRegistrationBoth.complete}"></title>
+</head>
+<body>
+	<div class="container registration text-center" layout:fragment="content">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+				<div class="brand">
+					<img th:src="@{/resources/img/logo_min_m.png}">
+				</div>
+				<div class="alert alert-success">
+    				<h3 th:text="#{formCampingSuccess.message}"></h3>
+    				<a th:text="#{form403.backToHome}" th:href="@{/}"></a>
+  				</div>
+				<div style="width: 100px; margin: 0 auto;">
+        			<img src="https://image.flaticon.com/icons/svg/372/372071.svg">
+    			</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

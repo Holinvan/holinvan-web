@@ -44,7 +44,7 @@ public class CampingController {
 		}
 		else {
 			campingService.addNewCamping(camping);
-		    return "hello";
+		    return "camping/camping-register-success";
 		}
 		model.addAttribute("addCampingResponse", response);
 		return "camping/addCamping";
