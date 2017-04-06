@@ -11,14 +11,22 @@
 			<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 				<form th:action="@{/info}" method="post" th:object="${userData}">
 					<h2 th:text="#{formRegister.infoBasic}"></h2>
-					<div th:if="${#fields.hasErrors('*')}"
-						class="alert alert-danger alert-dismissible" role="alert">
+					<div th:if="${userDataResponse}" class="alert alert-dismissible"
+						role="alert"
+						th:classappend="${#strings.equals(userDataResponse.status, 'OK')} ? alert-success : alert-danger">
 						<button type="button" class="close" data-dismiss="alert"
-							aria-label="Close">
-							<span aria-hidden="true" th:text="#{formRegister.errorInfo}">&times;</span>
-						</button>
-
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<strong th:text="#{${userDataResponse.messageCode}}"></strong>
 					</div>
+					<div th:if="${#fields.hasErrors('*')}"
+							class="alert alert-danger alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert"
+								aria-label="Close">
+								<span aria-hidden="true" th:text="#{formRegister.errorInfo}">&times;</span>
+							</button>
+						</div>
 					<div class="form-group"
 						th:classappend="${#fields.hasErrors('name')} ? has-error">
 						<label for="name" th:text="#{formRegister.name}"></label> <input
@@ -92,8 +100,8 @@
 					</div>
 					<div class="form-group"
 						th:classappend="${#fields.hasErrors('country')} ? has-error">
-						<label for="country" th:text="#{formRegister.country}"></label>
-						<select id="country" th:field="*{country}" class="form-control">
+						<label for="country" th:text="#{formRegister.country}"></label> <select
+							id="country" th:field="*{country}" class="form-control">
 							<option value="Spain" th:text="#{formRegister.country.Spain}"></option>
 							<option value="France" th:text="#{formRegister.country.France}"></option>
 							<option value="Italy" th:text="#{formRegister.country.Italy}"></option>
@@ -102,7 +110,8 @@
 							<option value="Denmark" th:text="#{formRegister.country.Denmark}"></option>
 							<option value="Russia" th:text="#{formRegister.country.Russia}"></option>
 							<option value="Germany" th:text="#{formRegister.country.Germany}"></option>
-							<option value="Portugal" th:text="#{formRegister.country.Portugal}"></option>
+							<option value="Portugal"
+								th:text="#{formRegister.country.Portugal}"></option>
 							<option value="Poland" th:text="#{formRegister.country.Poland}"></option>
 						</select>
 					</div>
@@ -124,8 +133,8 @@
 					</div>
 					<div class="form-group"
 						th:classappend="${#fields.hasErrors('nif')} ? has-error">
-						<label for="nif" th:text="#{formRegister.nif}"></label>
-						<input type="text" th:field="*{nif}" class="form-control"
+						<label for="nif" th:text="#{formRegister.nif}"></label> <input
+							type="text" th:field="*{nif}" class="form-control"
 							th:placeholder="#{formRegister.nif}" required>
 						<p th:if="${#fields.hasErrors('nif')}" th:errors="*{nif}"
 							class="error">Error</p>

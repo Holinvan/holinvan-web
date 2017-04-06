@@ -19,6 +19,8 @@ import com.holinvan.web.model.UserData;
 import com.holinvan.web.service.EmailService;
 import com.holinvan.web.service.UserDataService;
 import com.holinvan.web.service.UserService;
+import com.holinvan.web.type.Response;
+import com.holinvan.web.type.ResponseStatus;
 
 @Controller
 public class UserDataController {
@@ -50,14 +52,20 @@ public class UserDataController {
 	}
 
 	@PostMapping("/info")
-	public String editUserInfo(@Valid @ModelAttribute("userData") UserData userData, BindingResult result, @AuthenticationPrincipal User activeUser, HttpServletRequest request){
+	public String editUserInfo(@Valid @ModelAttribute("userData") UserData userData, BindingResult result, @AuthenticationPrincipal User activeUser, HttpServletRequest request, Model model){
+		
+		Response response = new Response(ResponseStatus.OK, "formBilling.okMsg");
 		if (result.hasErrors()){
+			response.setMessageCode("formBilling.failMsg");
+			response.setStatus(ResponseStatus.ERROR);
 			System.out.println(result.getFieldErrors());
 			return EDIT_USER;
 		}
 		else {
 			userDataService.editUserInfo(activeUser, userData);
 		}
+		response.setMessageCode("formBilling.okMsg");
+		model.addAttribute("userDataResponse", response);
 		return EDIT_USER;		
 	}
 

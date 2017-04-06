@@ -58,6 +58,7 @@ public class UserFacturationDataController {
 		if (result.hasErrors()){
 			response.setMessageCode("formBilling.failMsg");
 			response.setStatus(ResponseStatus.ERROR);
+			return USER_FACTURATION;
 		}
 		else {
 			userFacturationDataService.editFacturationUserInfo(activeUser, userFacturationData);
