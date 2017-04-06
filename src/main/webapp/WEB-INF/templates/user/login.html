@@ -21,11 +21,11 @@
   			</div>
 	   		<form th:action="@{/signin/facebook}" method="post" class="social">
 	   			<input type="hidden" name="scope" value="public_profile,email" />
-	   			<button class="btn btn-default btn-block" type="submit"><i class="fa fa-facebook" aria-hidden="true"></i><span th:text="#{formLogin.btnFacebook}"></span></button>
+	   			<button class="btn btn-default btn-block" type="submit"><i class="fa fa-facebook" aria-hidden="true"></i><span th:text="#{formLogin.signInFace}"></span></button>
 			</form>
 			<form th:action="@{/signin/google}" method="post" class="social">
 	    		<input type="hidden" name="scope" value="email https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.me" />
-	    		<button class="btn btn-default btn-block" type="submit"><i class="fa fa-google" aria-hidden="true"></i><span th:text="#{formLogin.btnGoogle}"></span></button>
+	    		<button class="btn btn-default btn-block" type="submit"><i class="fa fa-google" aria-hidden="true"></i><span th:text="#{formLogin.signIn}"></span></button>
 			</form>
 			<hr>
 			<div class="signup-footer">
