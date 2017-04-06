@@ -6,20 +6,20 @@
 <body>
 	<div class="masthead clearfix" layout:fragment="nav">
 		<div class="inner">
-        	<a class="masthead-brand" th:href="@{~/holinvan-web}"><img th:src="@{/resources/img/logo_min_w.png}"></a>
+        	<a class="masthead-brand" href="http://www.holinvan.com"><img th:src="@{/resources/img/logo_min_w.png}"></a>
           	<nav>
 	            <ul class="nav masthead-nav">
-	              	<li><a th:href="@{/caravana/add}">Caravans</a></li>
-			        <li><a th:href="@{/listCampings}">Campings</a></li>
-			        <li sec:authorize="isAnonymous()"><a th:href="@{/login}">Log In</a></li>
-			        <li sec:authorize="isAnonymous()"><a th:href="@{/register}">Sign Up</a></li>
+	              	<li><a th:href="@{/caravana/add}" th:text="#{caravans}"></a></li>
+			        <li><a th:href="@{/listCampings}" th:text="#{campings}"></a></li>
+			        <li sec:authorize="isAnonymous()"><a th:href="@{/login}" th:text="#{logIn}"></a></li>
+			        <li sec:authorize="isAnonymous()"><a th:href="@{/register}" th:text="#{signUp}"></a></li>
 			        <li sec:authorize="isAuthenticated()" class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> [[${#httpServletRequest.remoteUser}]]<span class="caret"></span></a>
 			          <ul class="dropdown-menu">
-			            <li><a th:href="@{/info}">My account</a></li>
-			            <li><a th:href="@{/facturation-data}">Facturation</a></li>
+			            <li><a th:href="@{/info}" th:text="#{myAccount}"></a></li>
+			            <li><a th:href="@{/facturation-data}" th:text="#{billing}"></a></li>
 			            <li role="separator" class="divider"></li>
-			            <li><a href="javascript: document.logoutForm.submit()">LogOut</a>
+			            <li><a href="javascript: document.logoutForm.submit()" th:text="#{logOut}"></a>
 			            	<form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
 			           			<input type="submit" value="Sign Out"/>
 			        		</form>
@@ -36,7 +36,7 @@
 	    		<h1 class="cover-heading">Share your way</h1>
 		        <p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa</p>
 		        <p class="lead">
-		          <a th:href="@{/caravana/add}" class="btn btn-primary outline">PUBLISH YOUR CARAVAN</a>
+		          <a th:href="@{/caravana/add}" class="btn btn-primary outline" th:text="#{publishCaravan}"></a>
 		        </p>
     		</div>
     	</div>	

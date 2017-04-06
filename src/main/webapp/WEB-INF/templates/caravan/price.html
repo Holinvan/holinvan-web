@@ -6,7 +6,7 @@
 <head>
 </head>
 <meta charset="UTF-8">
-<title>Correcto</title>
+<title th:text="#{correct}"></title>
 </head>
 <body>
 	<div class="container-fluid" layout:fragment="content">
@@ -15,7 +15,7 @@
 				th:src="@{/resources/img/logo_min_m.png}"> <img
 				class="logo-mobile" th:src="@{/resources/img/isotipo_min.png}">
 			</a>
-			<h4 class="title-progress">PUBLISH YOUR CARAVAN</h4>
+			<h4 th:text= "#{publishCaravan}"></h4>
 		</div>
 		<div class="row">
 			<div class="progress">
@@ -52,9 +52,9 @@
 		<div class="col-md-8">
 			<table class="table table-hover table-responsive">
 				<tr>
-					<th>FECHA DE INICIO</th>
-					<th>FECHA DE FIN</th>
-					<th>PRECIO</th>
+					<th th:text="#{finalDate}"></th>
+					<th th:text="#{endDate}"></th>
+					<th th:text="#{price}"></th>
 				</tr>
 				<tr th:each="price:${prices}">
 					<td th:text="${price.initDate}"></td>

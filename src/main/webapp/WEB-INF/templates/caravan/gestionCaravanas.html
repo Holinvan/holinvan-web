@@ -4,7 +4,7 @@
 	layout:decorate="~{layouts/simple}"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<title>Add Caravan</title>
+<title th:text="#{addCaravan}"></title>
 </head>
 <meta charset="UTF-8">
 <title th:text="#{5}"></title>
@@ -12,11 +12,11 @@
 <body>
 	<div class="container-fluid" layout:fragment="content">
 		<div class="header-publish-caravan">
-			<a th:href="@{~/holinvan-web}"> <img class="logo-desktop"
+			<a href="http://www.holinvan.com"> <img class="logo-desktop"
 				th:src="@{/resources/img/logo_min_m.png}"> <img
 				class="logo-mobile" th:src="@{/resources/img/isotipo_min.png}">
 			</a>
-			<h4 class="title-progress">PUBLISH YOUR CARAVAN</h4>
+			<h4 th:text="#{publishCaravan}"></h4>
 		</div>
 		<div class="row">
 			<div class="progress">
@@ -347,22 +347,22 @@
 							<div class="col-md-6 col-md-offset-3">
 								<div class="checkbox">
 									<label> <input type="checkbox" th:field="*{rule.kids}">
-										<span th:text="#{kids}"></span>
+										<span th:text="#{allowKids}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
 									<label> <input type="checkbox" th:field="*{rule.pets}">
-										<span th:text="#{pets}"></span>
+										<span th:text="#{allowPets}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
 									<label> <input type="checkbox" th:field="*{rule.smoke}">
-										<span th:text="#{smokers}"></span>
+										<span th:text="#{allowSmoke}"></span>
 									</label>
 								</div>
 								<div class="checkbox">
 									<label> <input type="checkbox" th:field="*{rule.party}">
-										<span th:text="#{party}"></span>
+										<span th:text="#{allowParty}"></span>
 									</label>
 								</div>
 								

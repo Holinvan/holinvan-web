@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layouts/simple}"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	layout:decorate="~{layouts/simple}">
 <head>
+<<<<<<< HEAD
 </head>
 <meta charset="UTF-8">
-<title>Correcto</title>
+<title th:text= "#{correct}"></title>
 </head>
 <body>
 	<div class="container-fluid" layout:fragment="content">
@@ -15,17 +15,35 @@
 				th:src="@{/resources/img/logo_min_m.png}"> <img
 				class="logo-mobile" th:src="@{/resources/img/isotipo_min.png}">
 			</a>
-			<h4 class="title-progress">PUBLISH YOUR CARAVAN</h4>
+			<h4 th:text="#{publishCaravan}"></h4>
 		</div>
+=======
+<title th:text="#{formRegistrationBoth.complete}"></title>
+</head>
+<body>
+	<div class="container registration text-center"
+		layout:fragment="content">
+>>>>>>> 7ea8292b14af4600a2b6914b3f70b6d31867b7f2
 		<div class="row">
-			<div class="progress">
-				<div class="progress-bar" role="progressbar" aria-valuenow="7,14"
-					aria-valuemin="100" aria-valuemax="100" style="width: 7,14%;">
-					<span class="sr-only"></span>
+			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+				<div class="brand">
+					<img th:src="@{/resources/img/logo_min_m.png}">
 				</div>
+				<div class="alert alert-success">
+					<h3 th:text="#{formCaravanSuccess.message}"></h3>
+					<a th:text="#{form403.backToHome}" th:href="@{/}"></a>
+				</div>
+				<div style="width: 100px; margin: 0 auto;">
+					<img src="https://image.flaticon.com/icons/svg/226/226653.svg">
+				</div>
+				<form th:action="@{lista}" method="get">
+					<button type="submit" class="btn btn-primary">Lista de
+						caravanas</button>
+				</form>
 			</div>
+<<<<<<< HEAD
 			<div class="col-md-8 col-sm-6 col-sm-offset-3">
-		<h1>TU CARAVANA SE HA AÑADIDO CORRECTAMENTE</h1>
+		<h1 th:text= "#{caravanCorrect}"></h1>
 		
 		<form th:action="@{lista}" method="get">
 			<button type="submit" class="btn btn-primary">Lista de caravanas</button>
@@ -35,10 +53,9 @@
 
 	</div>
 	</div>
+=======
+		</div>
+>>>>>>> 7ea8292b14af4600a2b6914b3f70b6d31867b7f2
 	</div>
-
-
-
-
 </body>
 </html>
