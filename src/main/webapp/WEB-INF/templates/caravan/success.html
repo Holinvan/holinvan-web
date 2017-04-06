@@ -6,7 +6,7 @@
 <head>
 </head>
 <meta charset="UTF-8">
-<title>Correcto</title>
+<title th:text= "#{correct}"></title>
 </head>
 <body>
 	<div class="container-fluid" layout:fragment="content">
@@ -15,7 +15,7 @@
 				th:src="@{/resources/img/logo_min_m.png}"> <img
 				class="logo-mobile" th:src="@{/resources/img/isotipo_min.png}">
 			</a>
-			<h4 class="title-progress">PUBLISH YOUR CARAVAN</h4>
+			<h4 th:text="#{publishCaravan}"></h4>
 		</div>
 		<div class="row">
 			<div class="progress">
@@ -25,7 +25,7 @@
 				</div>
 			</div>
 			<div class="col-md-8 col-sm-6 col-sm-offset-3">
-		<h1>TU CARAVANA SE HA AÑADIDO CORRECTAMENTE</h1>
+		<h1 th:text= "#{caravanCorrect}"></h1>
 		
 		<form th:action="@{lista}" method="get">
 			<button type="submit" class="btn btn-primary">Lista de caravanas</button>
