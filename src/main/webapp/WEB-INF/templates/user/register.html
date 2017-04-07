@@ -6,17 +6,15 @@
 	<body>
 		<div class="container" layout:fragment="content">
 			<div class="row form-signin">
-		    	<div th:if="${(param.signup != null) and (param.signup[0] == 'true')}" class="alert alert-warning" role="alert" th:text="#{formRegister.noAccount}">
-		    		
+		    	<div th:if="${(param.signup != null) and (param.signup[0] == 'true')}" class="alert alert-warning" role="alert" th:text="#{formRegister.noAccount}">	
 		    	</div>
 		    	<form th:action="@{/register}" method="post" th:object="${user}">
 					<h2 class="form-signin-heading" th:text="#{formRegister.title}"></h2>
 				    <label for="username" class="sr-only"></label>
 				    <input type="text" th:field="*{username}" th:placeholder="#{formRegister.email}" class="form-control" required autofocus/>
-				    
-				    <label for="password"></label>
-                <input type="password" th:field="*{password}"class="form-control" th:placeholder="#{formLogin.password}" maxlength="15" required>
-                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error">Error</p>
+				    <label for="password" class="sr-only"></label>
+                	<input type="password" th:field="*{password}"class="form-control" th:placeholder="#{formLogin.password}" maxlength="15" required>
+                	<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error">Error</p>
 				    
 				                    <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{formLogin.register}"></button>
 
@@ -35,9 +33,9 @@
 				</form>
 				<hr>
 				<div class="signup-footer">
-					<div class="col-sm-9 text-left" th:text="#{formRegister.questionAlreadyReg}">
+					<div class="col-xs-9 text-left" th:text="#{formRegister.questionAlreadyReg}">
 					</div>
-					<div class="col-sm-3 text-right">
+					<div class="col-xs-3 text-right">
 						<a class="btn btn-default" th:href="@{/login}" role="button" th:text="#{formRegister.loginBtn}"></a>
 					</div>
 				</div>
